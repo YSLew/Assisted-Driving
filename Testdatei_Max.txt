@@ -1,7 +1,3 @@
 Ich bin die neue Testnachricht.
 
-Ich bin eine Änderung!
-
-Diese Änderung erscheint nur im neuen Branch. Ver. 1.0
-
-Weitere Änderungen.
+Masterbranch.
