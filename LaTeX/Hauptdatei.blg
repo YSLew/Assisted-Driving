@@ -1,0 +1,16 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Hauptdatei.aux
+A level-1 auxiliary file: Deckblatt.aux
+A level-1 auxiliary file: Inhalt/Abstract.aux
+A level-1 auxiliary file: Inhalt/Einleitung.aux
+A level-1 auxiliary file: Inhalt/Theoretische_Grundlagen.aux
+A level-1 auxiliary file: Inhalt/Systemdesign.aux
+A level-1 auxiliary file: Inhalt/Systemtest_und_Optimierung.aux
+A level-1 auxiliary file: Inhalt/Zusammenfassung_und_Ausblicke.aux
+The style file: natdin.bst
+I found no \citation commands---while reading file Hauptdatei.aux
+Database file #1: Bibliographie.bib
+I was expecting a `,' or a `}'---line 6 of file Bibliographie.bib
+ :  isbn = 978
+ :            -3-8348-0287-3
+I'm skipping whatever remains of this entry
+(There were 2 error messages)

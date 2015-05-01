@@ -1,0 +1,79 @@
+% Eigene Befehle und typographische Auszeichnungen für diese
+
+% einfaches Wechseln der Schrift, z.B.: \changefont{cmss}{sbc}{n}
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+% Abkürzungen mit korrektem Leerraum 
+\newcommand{\ua}{\mbox{u.\,a.\ }}
+\newcommand{\zB}{\mbox{z.\,B.\ }}
+\newcommand{\dahe}{\mbox{d.\,h.\ }}
+\newcommand{\Vgl}{Vgl.\ }
+\newcommand{\bzw}{bzw.\ }
+\newcommand{\evtl}{evtl.\ }
+
+\newcommand{\abbildung}[1]{Abbildung~\ref{fig:#1}}
+
+\newcommand{\bs}{$\backslash$}
+
+% erzeugt ein Listenelement mit fetter Überschrift 
+\newcommand{\itemd}[2]{\item{\textbf{#1}}\\{#2}}
+
+% einige Befehle zum Zitieren --------------------------------------------------
+\newcommand{\Zitat}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\citep{#2}}{\citep[#1]{#2}}}
+
+% zum Ausgeben von Autoren
+\newcommand{\AutorName}[1]{\textsc{#1}}
+\newcommand{\Autor}[1]{\AutorName{\citeauthor{#1}}}
+
+% verschiedene Befehle um Wörter semantisch auszuzeichnen ----------------------
+\newcommand{\NeuerBegriff}[1]{\textbf{#1}}
+\newcommand{\Fachbegriff}[1]{\textit{#1}}
+
+\newcommand{\Eingabe}[1]{\texttt{#1}}
+\newcommand{\Code}[1]{\texttt{#1}}
+\newcommand{\Datei}[1]{\texttt{#1}}
+
+\newcommand{\Datentyp}[1]{\textsf{#1}}
+\newcommand{\XMLElement}[1]{\textsf{#1}}
+\newcommand{\Webservice}[1]{\textsf{#1}}
+
+% für Formelverzeichnis --------------------------------------------------------------------
+\DeclareNewTOC[% 
+  indent=0pt,% kein Einzug im Verzeichnis 
+  hang=2em,% Einzug für den Text im Verzeichnis 
+  type=equation 
+]{loe} 
+
+\AtBeginDocument{% 
+  \newcaptionname{ngerman}\equationname{Formel}% 
+  \newcaptionname{ngerman}\listequationname{Formelverzeichnis}% 
+} 
+
+% für Bildquellen ----------------------------------------------------------------------------
+\newcommand*{\quelle}{
+	\footnotesize Quelle:
+}
+
+% Dafür sorgen, dass Einträge immer dann erzeugt werden können, wenn auch Tags 
+% gesetzt werden: 
+\makeatletter 
+\newcommand*{\@currententry}{} 
+% Zwei amsmath-Anweisungen ändern: 
+\g@addto@macro\make@display@tag{\set@currententry}% 
+\def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}% 
+  \set@currententry} 
+\newcommand*{\set@currententry}{% 
+  \typeout{set current entry}% 
+  \ifx\@currententry\@empty\else 
+    \addcontentsline{loe}{equation}{\protect\numberline{\@currentlabel}% 
+      \@currententry}% 
+    \global\let\@currententry\@empty 
+  \fi 
+} 
+
+% Neue Benutzeranweisung 
+\newcommand*{\equationentry}[1]{% 
+  \gdef\@currententry{#1}% 
+} 
+\makeatother
+% ------------------------------------------------------------------------------------------------
