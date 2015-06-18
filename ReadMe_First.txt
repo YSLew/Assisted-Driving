@@ -1,0 +1,1 @@
+GitIgnore-global.txt kopieren nach User/Dokumente!
