@@ -7,10 +7,36 @@ A level-1 auxiliary file: Inhalt/Systemdesign.aux
 A level-1 auxiliary file: Inhalt/Systemtest_und_Optimierung.aux
 A level-1 auxiliary file: Inhalt/Zusammenfassung_und_Ausblicke.aux
 The style file: natdin.bst
-I found no \citation commands---while reading file Hauptdatei.aux
+A level-1 auxiliary file: Erklaerung.aux
 Database file #1: Bibliographie.bib
-I was expecting a `,' or a `}'---line 6 of file Bibliographie.bib
+I was expecting a `,' or a `}'---line 20 of file Bibliographie.bib
  :  isbn = 978
  :            -3-8348-0287-3
 I'm skipping whatever remains of this entry
-(There were 2 error messages)
+Warning--entry type for "stmData" isn't style-file defined
+--line 23 of file Bibliographie.bib
+Warning--entry type for "stmRef" isn't style-file defined
+--line 30 of file Bibliographie.bib
+Warning--entry type for "fpgaWiki" isn't style-file defined
+--line 44 of file Bibliographie.bib
+Warning--entry type for "fpgaAbaxor" isn't style-file defined
+--line 51 of file Bibliographie.bib
+Warning--entry type for "fpgaMikro" isn't style-file defined
+--line 58 of file Bibliographie.bib
+Warning--entry type for "alteraDatasheet" isn't style-file defined
+--line 65 of file Bibliographie.bib
+Warning--entry type for "alteraVol1" isn't style-file defined
+--line 72 of file Bibliographie.bib
+Warning--entry type for "alteraVol2" isn't style-file defined
+--line 79 of file Bibliographie.bib
+Warning--entry type for "ultraschallmodul" isn't style-file defined
+--line 86 of file Bibliographie.bib
+Warning--entry type for "i2c" isn't style-file defined
+--line 93 of file Bibliographie.bib
+Warning--entry type for "i2c_ausgang" isn't style-file defined
+--line 100 of file Bibliographie.bib
+Warning--entry type for "i2cDriver" isn't style-file defined
+--line 107 of file Bibliographie.bib
+Warning--entry type for "zustandsautomat" isn't style-file defined
+--line 121 of file Bibliographie.bib
+(There was 1 error message)

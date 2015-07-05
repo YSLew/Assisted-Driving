@@ -59,7 +59,6 @@
 % Deckblatt und Abstract ohne Seitenzahl
 \ofoot{}
 \include{Deckblatt}
-\include{Inhalt/Abstract}
 \ofoot{\pagemark}
 
 
@@ -80,10 +79,10 @@
 % --------------------------------------------------------------------------------------
 % Abkürzungsverzeichnis
     \addchap{Abkürzungsverzeichnis}
-	\begin{acronym}[DDR-SDRAM] % längste Abkürzung steht in eckigen Klammern
-		\setlength{\itemsep}{-\parsep} % geringerer Zeilenabstand
-		\input{Inhalt/Abkürzungen}
-        	\end{acronym}
+\begin{acronym}[DDR-SDRAM] % längste Abkürzung steht in eckigen Klammern
+	\setlength{\itemsep}{-\parsep} % geringerer Zeilenabstand
+	\input{Inhalt/Abkürzungen}
+        \end{acronym}
 % --------------------------------------------------------------------------------------
 
 % arabische Seitenzahlen im Hauptteil ------------------------------------------
@@ -100,27 +99,24 @@
 \bibliography{Bibliographie} % Aufruf: bibtex
 \bibliographystyle{natdin} % DIN-Stil des Literaturverzeichnisses
 
-%\include{Erklaerung} % Selbständigkeitserklärung
-
 % ------------------------------------------------------------------------------
 % Anhang
 % ------------------------------------------------------------------------------
 \begin{appendix}
     \clearpage
     \pagenumbering{roman}
-
     %Anhang A
     \chapter{Anhang Code}
     \label{sec:Anhang Code}
     % Rand der Aufzählungen in Tabellen anpassen
     \setdefaultleftmargin{1em}{}{}{}{}{}
     \input{Anhang_Code}
-
     %Anhang B
-    \chapter{Anhang Bilder}
-    \label{sec:Anhang Bilder}
-    \setdefaultleftmargin{1em}{}{}{}{}{}
-    \input{Anhang_Bilder}
+    %\chapter{Anhang Bilder}
+    %\label{sec:Anhang Bilder}
+    % Rand der Aufzählungen in Tabellen anpassen
+    %\setdefaultleftmargin{1em}{}{}{}{}{}
+    %\input{Anhang_Bilder}
 \end{appendix}
 
 % Index ------------------------------------------------------------------------
