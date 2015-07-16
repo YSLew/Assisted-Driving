@@ -87,7 +87,7 @@ Mat look_for_red(const Mat &I)
 			int g = p[3 * j + 1];
 			int r = p[3 * j + 2];
 
-			if (r > 110 && g < 90 && b < 90) //nur rote Elemente auf Weiß setzen
+			if (r > 100 && g < 80 && b < 80) //nur rote Elemente auf Weiß setzen
 				q[j] = 255;
 			else
 				q[j] = 0;
@@ -185,7 +185,7 @@ int main()
 				
 
 		//Morph um Flimmern zu vermeiden!
-		Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
+		Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(1, 1));
 		//opening
 		morphologyEx(input_image_clone, input_image_clone, MORPH_CLOSE, kernel);
 		//morphologyEx(Maske_f_sw_er, Maske_f_sw, 3, kernel);
