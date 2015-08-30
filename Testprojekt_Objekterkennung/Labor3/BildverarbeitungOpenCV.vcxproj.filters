@@ -24,5 +24,8 @@
     <ClCompile Include="PixelAccess.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Stop-Schild_Test_Konsole.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

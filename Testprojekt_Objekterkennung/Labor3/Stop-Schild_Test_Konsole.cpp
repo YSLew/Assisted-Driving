@@ -88,11 +88,47 @@ Mat look_for_red(const Mat &I)
 			int r = p[3 * j + 2];
 
 			//if (r > 110 && g < 90 && b < 90) //nur rote Elemente auf Wei� setzen
-				//q[j] = 255;
+			//q[j] = 255;
 			//else
-				//q[j] = 0;
+			//q[j] = 0;
 
 			q[j] = r / 2 - g / 2 - b / 2 + 128;
+		}
+	}
+	return O;
+}
+
+// I ist BGR Bild, O is grauwert
+Mat look_for_yellow(const Mat &I)
+{
+	assert(I.channels() == 3);
+
+	int nRows = I.rows;
+	int nCols = I.cols;
+
+	if (I.isContinuous())
+	{
+		nCols *= nRows;
+		nRows = 1;
+	}
+
+	Mat O = Mat(I.size(), CV_8UC1); //Ausgabematrix initialisieren 
+
+	int i, j;
+	const uchar* p;
+	uchar* q;
+
+	for (i = 0; i < nRows; ++i)
+	{
+		p = I.ptr<uchar>(i); //Pointer anlegen, der auf Anfang der Matrix zeigt
+		q = O.ptr<uchar>(i);
+		for (j = 0; j < nCols; ++j)
+		{
+			int b = p[3 * j + 0];
+			int g = p[3 * j + 1];
+			int r = p[3 * j + 2];
+
+			q[j] = g / 2 - r / 2 - b / 2 + 128;
 		}
 	}
 	return O;
@@ -149,8 +185,8 @@ int main(int argc, char *argv[])
 	Mat scene_descriptors; // Szenenvektoren
 
 	//mouse callback
-	namedWindow("Input", WINDOW_AUTOSIZE);
-	namedWindow("Output", WINDOW_AUTOSIZE);
+	//namedWindow("Input", WINDOW_AUTOSIZE);
+	//namedWindow("Output", WINDOW_AUTOSIZE);
 	cvSetMouseCallback("Input", my_mouse_callback, 0);
 
 
@@ -168,9 +204,10 @@ int main(int argc, char *argv[])
 		//f�r Kamera!
 		//videoCapture >> input_image;
 		input = imread(argv[1]);
-		imshow("Orginal", input);
+		//imshow("Orginal", input);
 
-		input_image = look_for_red(input);
+		//input_image = look_for_red(input);
+		input_image = look_for_yellow(input);
 
 		/*
 		if (input_image.empty())
@@ -182,9 +219,9 @@ int main(int argc, char *argv[])
 		input_image_clone = input_image.clone();
 
 		//Morph um Flimmern zu vermeiden!
-		Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
+		//Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
 		//opening
-		morphologyEx(input_image_clone, input_image_clone, MORPH_CLOSE, kernel);
+		//morphologyEx(input_image_clone, input_image_clone, MORPH_CLOSE, kernel);
 		//morphologyEx(Maske_f_sw_er, Maske_f_sw, 3, kernel);
 
 		/*operation: The kind of morphology transformation to be performed. Note that we have 5 alternatives:
@@ -195,20 +232,15 @@ int main(int argc, char *argv[])
 		Black Hat: MORPH_BLACKHAT: 6
 		*/
 
-		imshow("Nach Rot-Suche und Morphologie", input_image_clone);
+		//imshow("Nach Rot-Suche und Morphologie", input_image_clone);
 
 
-		//ROI f�r Quadrat anlegen
+		//ROI fuer Quadrat anlegen
 		region_of_interest2 = box;
 
 		if (new_obj)
 		{
 
-			//orginal
-			//global_box = input_image_clone(region_of_interest2).clone();
-
-			//geht nicht: warum?
-			//global_box = imread("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/SE - Projekt Bildersammlung WWW/STOP.jpg");
 			global_box = imread(argv[2]);
 
 			if (global_box.empty())
@@ -217,7 +249,7 @@ int main(int argc, char *argv[])
 				return 1;
 			}
 
-			//m�gliche Konvertierung
+			//moegliche Konvertierung
 			//cvtColor(global_box, global_box, CV_BGR2GRAY);
 			//threshold(global_box, global_box, 128, 255, THRESH_BINARY);
 			global_box = look_for_red(global_box);
@@ -242,11 +274,6 @@ int main(int argc, char *argv[])
 			//Matches finden
 			matcher.match(obj_descriptors, scene_descriptors, matches);
 			std::cout << "found " << matches.size() << " matches" << std::endl;
-
-			//knn-match: //klappt nicht!
-			//std::vector<std::vector<cv::DMatch>> matches;
-			//matcher->knnMatch(scene_descriptors, obj_descriptors, matches, 2); // finde die 2 nahesten Nachbarn 
-
 
 			if (match_method == 1)
 			{
@@ -315,7 +342,7 @@ int main(int argc, char *argv[])
 
 				std::vector<Point2f> scene_corners(4);
 
-				//�bertragen der Ecken auf Szene (+ bestm�gliche Verzerrung)
+				//Uebertragen der Ecken auf Szene (+ bestm�gliche Verzerrung)
 				perspectiveTransform(obj_corners, scene_corners, H);
 
 
@@ -337,47 +364,25 @@ int main(int argc, char *argv[])
 			}
 
 
-
-
-
-			cv::imshow("Output", output_image);
-			cv::imshow("Final", input);
+			//cv::imshow("Output", output_image);
+			//cv::imshow("Final", input);
 		}
 
 
 		//Quadrat zeichnen
 		cv::rectangle(input_image_clone, region_of_interest2, Scalar(0, 0, 255, 0));
 
-		//Bilder darstellen
-		//cv::imshow("Input", input_image_clone);
-		//cv::imshow("Scene", input_image_clone_sw);
-		//cv::imshow("Objekt", global_box);
-
-
 		new_obj = false;
 		new_match = false;
-		cv::imwrite("Testfile.png", output_image);
-		int c = cv::waitKey(Wait_Time); //entspricht "auffrischen" des Fensters: fragt nachrichten ab, erlaubt OS das Auffrischen des Fensters dazwischen
 
-		switch (c)
-		{
-		case 'q':	/*videoWriter.release();*/  return 0;
-		case 'f':	Wait_Time = 1; break;
-		case 'l':	Wait_Time = 500; break;
-		case 'e':	Wait_Time = 0; break;
-		case 's':
-		{
-					cv::imwrite("Testfile.png", output_image);
-					new_obj = true;
-					break;
-		}
-		case 'm':
-		{
-					new_match = true;
-					break;
-		}
-		}
-	//}
+		std::string Str_Input = argv[1];
+		std::string Str_Scene = argv[2];
+
+		std::string result = Str_Input + "_matched_with_" + Str_Scene + ".png";
+
+		std::cout << result << std::endl;
+
+		cv::imwrite(result, output_image);
 
 	return 0;
 }
