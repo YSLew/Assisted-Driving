@@ -1,4 +1,4 @@
-ï»¿//Robert
+//Robert
 
 #include <iostream>
 
@@ -7,7 +7,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 
-//fï¿½r Feature-Tracking
+//für Feature-Tracking
 #include <opencv2/features2d.hpp>
 #include <opencv2/xfeatures2d.hpp>
 
@@ -17,7 +17,7 @@ using namespace cv;
 using namespace xfeatures2d;
 
 //draw a box
-CvRect box = cvRect(50, 50, 100, 100);
+CvRect box = cvRect(50,50,100,100);
 bool drawing_box = false;
 
 cv::Mat global_box;
@@ -87,25 +87,23 @@ Mat look_for_red(const Mat &I)
 			int g = p[3 * j + 1];
 			int r = p[3 * j + 2];
 
-			//if (r > 110 && g < 90 && b < 90) //nur rote Elemente auf Weiï¿½ setzen
-				//q[j] = 255;
-			//else
-				//q[j] = 0;
-
-			q[j] = r / 2 - g / 2 - b / 2 + 128;
+			if (r > 100 && g < 80 && b < 80) //nur rote Elemente auf Weiß setzen
+				q[j] = 255;
+			else
+				q[j] = 0;
 		}
 	}
 	return O;
 }
 
 
-int main(int argc, char *argv[])
+int main()
 {
 	int Wait_Time = 10;
 
 	std::cout << "Hello OpenCV" << std::endl;
 
-	/* //fï¿½r Webcam!
+	/* //für Webcam!
 	cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
 
 	videoCapture.set(CAP_PROP_FRAME_WIDTH, 800);
@@ -126,10 +124,10 @@ int main(int argc, char *argv[])
 
 
 	bool new_obj = true;
-	bool new_match = true;
+	bool new_match = false;
 
 	//tracking
-	int minHessian = 100;
+	int minHessian = 1000;
 	Ptr<Feature2D> detector = SURF::create(minHessian);
 
 	//matching
@@ -137,7 +135,7 @@ int main(int argc, char *argv[])
 	std::vector<DMatch> matches;
 	std::vector<DMatch> good_matches;
 	double max_dist = 0; double min_dist = 50;
-	int match_method = 2; //2: knm-Match
+	int match_method = 1;
 
 	std::vector<Point2f> obj; //Punkte der Matchpartner
 	std::vector<Point2f> scene; //Punkte der Matchpartner
@@ -162,27 +160,32 @@ int main(int argc, char *argv[])
 
 	Rect region_of_interest2;
 
-	//while (1)
-	//{
+	while (1)
+	{
 
-		//fï¿½r Kamera!
+		//für Kamera!
 		//videoCapture >> input_image;
-		input = imread(argv[1]);
+		input = imread("STOP_Scene_e.jpg");
 		imshow("Orginal", input);
 
-		input_image = look_for_red(input);
+		input_image=look_for_red(input);
+
+
+
 
 		/*
 		if (input_image.empty())
 		{
-		std::cerr << "no camera image" << std::endl;
-		break;
+			std::cerr << "no camera image" << std::endl;
+			break;
 		}*/
 
 		input_image_clone = input_image.clone();
 
+				
+
 		//Morph um Flimmern zu vermeiden!
-		Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(5, 5));
+		Mat kernel = getStructuringElement(MORPH_ELLIPSE, Size(1, 1));
 		//opening
 		morphologyEx(input_image_clone, input_image_clone, MORPH_CLOSE, kernel);
 		//morphologyEx(Maske_f_sw_er, Maske_f_sw, 3, kernel);
@@ -198,7 +201,7 @@ int main(int argc, char *argv[])
 		imshow("Nach Rot-Suche und Morphologie", input_image_clone);
 
 
-		//ROI fï¿½r Quadrat anlegen
+		//ROI für Quadrat anlegen
 		region_of_interest2 = box;
 
 		if (new_obj)
@@ -206,10 +209,10 @@ int main(int argc, char *argv[])
 
 			//orginal
 			//global_box = input_image_clone(region_of_interest2).clone();
-
+			
 			//geht nicht: warum?
 			//global_box = imread("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/SE - Projekt Bildersammlung WWW/STOP.jpg");
-			global_box = imread(argv[2]);
+			global_box = imread("STOP_b.jpg");
 
 			if (global_box.empty())
 			{
@@ -217,7 +220,7 @@ int main(int argc, char *argv[])
 				return 1;
 			}
 
-			//mï¿½gliche Konvertierung
+			//mögliche Konvertierung
 			//cvtColor(global_box, global_box, CV_BGR2GRAY);
 			//threshold(global_box, global_box, 128, 255, THRESH_BINARY);
 			global_box = look_for_red(global_box);
@@ -232,7 +235,7 @@ int main(int argc, char *argv[])
 			//Szene nach Features durchsuchen
 			output_image = input_image_clone.clone();
 
-			//nicht mehr nï¿½tig!
+			//nicht mehr nötig!
 			//cvtColor(input_image_clone, input_image_clone_sw, CV_BGR2GRAY);
 			input_image_clone_sw = input_image_clone;
 
@@ -246,17 +249,12 @@ int main(int argc, char *argv[])
 			//knn-match: //klappt nicht!
 			//std::vector<std::vector<cv::DMatch>> matches;
 			//matcher->knnMatch(scene_descriptors, obj_descriptors, matches, 2); // finde die 2 nahesten Nachbarn 
+			
 
-
+			//Gute Matches aussortieren
+			
 			if (match_method == 1)
 			{
-
-				//Matches finden
-				matcher.match(obj_descriptors, scene_descriptors, matches);
-				std::cout << "found " << matches.size() << " matches" << std::endl;
-
-				//Gute Matches aussortieren
-
 				for (int i = 0; i < matches.size(); i++)
 				{
 					double dist = matches[i].distance;
@@ -271,32 +269,14 @@ int main(int argc, char *argv[])
 						good_matches.push_back(matches[i]);
 				}
 			}
-
-			else
+			
+			//Keypoints der besten Matches finden
+			for (unsigned int i = 0; i < good_matches.size(); i++)
 			{
-
-				//knn-match: //klappt nicht!
-				std::vector<std::vector<cv::DMatch>> matches;
-				matcher.knnMatch(obj_descriptors, scene_descriptors, matches, 2); // finde die 2 nahesten Nachbarn 
-
-				good_matches.clear();
-				for (int i = 0; i < matches.size(); i++)
-				{
-					if (matches[i][0].distance < 0.6*(matches[i][1].distance))
-						good_matches.push_back(matches[i][0]);
-				}
-
+				//was passiert hier? was ist queryIdx?
+				obj.push_back(obj_keypoints[good_matches[i].queryIdx].pt);
+				scene.push_back(scene_keypoints[good_matches[i].trainIdx].pt);
 			}
-
-		//Keypoints der besten Matches finden
-		obj.clear();
-		scene.clear();
-		for (unsigned int i = 0; i < good_matches.size(); i++)
-		{
-			//was passiert hier? was ist queryIdx?
-			obj.push_back(obj_keypoints[good_matches[i].queryIdx].pt);
-			scene.push_back(scene_keypoints[good_matches[i].trainIdx].pt);
-		}
 
 			//matches zeichnen
 			drawMatches(global_box, obj_keypoints, input_image_clone_sw, scene_keypoints, good_matches, output_image);
@@ -306,7 +286,7 @@ int main(int argc, char *argv[])
 			Mat H = findHomography(obj, scene, CV_RANSAC);
 			if (!H.empty())
 			{
-				//Bestimmung der Ecken der ausgewï¿½hlten Szene (einfach nur ï¿½ber Breite und Hï¿½he des gewï¿½hlten Ausschnittes)
+				//Bestimmung der Ecken der ausgewählten Szene (einfach nur über Breite und Höhe des gewählten Ausschnittes)
 				std::vector<Point2f> obj_corners(4);
 				obj_corners[0] = cvPoint(0, 0);
 				obj_corners[1] = cvPoint(global_box.cols, 0);
@@ -315,13 +295,13 @@ int main(int argc, char *argv[])
 
 				std::vector<Point2f> scene_corners(4);
 
-				//ï¿½bertragen der Ecken auf Szene (+ bestmï¿½gliche Verzerrung)
+				//übertragen der Ecken auf Szene (+ bestmögliche Verzerrung)
 				perspectiveTransform(obj_corners, scene_corners, H);
 
 
 				//Rahmen zeichnen
 
-				//warum nicht 0,0 fï¿½r p0?
+				//warum nicht 0,0 für p0?
 				Point2f p0 = Point2f(global_box.cols, 0);
 				Point2f p00 = Point2f(0, 0);
 
@@ -336,7 +316,7 @@ int main(int argc, char *argv[])
 				line(input, p00 + scene_corners[3], p00 + scene_corners[0], Scalar(0, 255, 0), 3);
 			}
 
-
+			
 
 
 
@@ -352,32 +332,31 @@ int main(int argc, char *argv[])
 		//cv::imshow("Input", input_image_clone);
 		//cv::imshow("Scene", input_image_clone_sw);
 		//cv::imshow("Objekt", global_box);
-
+		
 
 		new_obj = false;
 		new_match = false;
-		cv::imwrite("Testfile.png", output_image);
 		int c = cv::waitKey(Wait_Time); //entspricht "auffrischen" des Fensters: fragt nachrichten ab, erlaubt OS das Auffrischen des Fensters dazwischen
 
 		switch (c)
 		{
-		case 'q':	/*videoWriter.release();*/  return 0;
-		case 'f':	Wait_Time = 1; break;
-		case 'l':	Wait_Time = 500; break;
-		case 'e':	Wait_Time = 0; break;
-		case 's':
-		{
-					cv::imwrite("Testfile.png", output_image);
-					new_obj = true;
-					break;
+			case 'q':	/*videoWriter.release();*/  return 0;
+			case 'f':	Wait_Time = 1; break;
+			case 'l':	Wait_Time = 500; break;
+			case 'e':	Wait_Time = 0; break;
+			case 's':
+			{
+						//cv::imwrite("Testfile.png", input_image);
+						new_obj = true;
+						break;
+			}
+			case 'm':
+			{			
+						new_match = true;
+						break;
+			}
 		}
-		case 'm':
-		{
-					new_match = true;
-					break;
-		}
-		}
-	//}
+	}
 
 	return 0;
 }

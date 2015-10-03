@@ -206,8 +206,9 @@ int main(int argc, char *argv[])
 		input = imread(argv[1]);
 		//imshow("Orginal", input);
 
-		//input_image = look_for_red(input);
-		input_image = look_for_yellow(input);
+		//color convertion
+		input_image = look_for_red(input);
+		//input_image = look_for_yellow(input);
 
 		/*
 		if (input_image.empty())
