@@ -1,7 +1,6 @@
 ﻿//Robert
 
 #include <iostream>
-#include <omp.h>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
@@ -118,59 +117,6 @@ int triangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2)
 
 }
 
-int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
-{
-	int i,j;
-	int min = 1000;
-	int array[4];
-	int swap;
-
-	int A, B, C,D;
-
-	array[0] = pt0.y;
-	array[1] = pt1.y;
-	array[2] = pt2.y;
-	array[3] = pt3.y;
-
-	for (i = 0; i< 4; i++)
-	{
-		for (j = i+1; j<4; j++)
-		{
-			if (array[i] > array[j]) /* For decreasing order use < */
-			{
-				swap = array[i];
-				array[i] = array[j];
-				array[j] = swap;
-			}
-		}
-	}
-
-	A = array[3];
-	B = array[2];
-	C = array[1];
-	D = array[0];
-
-	int AD = abs(A - D);
-	int DC = abs(D - C);
-
-	if (DC > (AD / 4))
-	{
-		printf("Quadrat");
-		return 0;
-		
-	}
-	else
-	{
-		printf("Raute");
-		return 1;
-		
-	}
-
-	
-
-
-}
-
 //////////////
 
 // I ist BGR Bild, O is grauwert
@@ -215,50 +161,6 @@ Mat look_for_red(const Mat &I)
 	}
 	return O;
 }
-
-// I ist BGR Bild, O is grauwert
-Mat look_for_yellow(const Mat &I)
-{
-	int channels = I.channels();
-	//printf("%d", channels);
-	assert(I.channels() == 3);
-
-	int nRows = I.rows;
-	int nCols = I.cols;
-
-	if (I.isContinuous())
-	{
-		nCols *= nRows;
-		nRows = 1;
-	}
-
-	Mat O = Mat(I.size(), CV_8UC1); //Ausgabematrix initialisieren 
-
-	int i, j;
-	const uchar* p;
-	uchar* q;
-
-	for (i = 0; i < nRows; ++i)
-	{
-		p = I.ptr<uchar>(i); //Pointer anlegen, der auf Anfang der Matrix zeigt
-		q = O.ptr<uchar>(i);
-		for (j = 0; j < nCols; ++j)
-		{
-			int b = p[3 * j + 0];
-			int g = p[3 * j + 1];
-			int r = p[3 * j + 2];
-
-			//if (r > 110 && g < 90 && b < 90) //nur rote Elemente auf Wei� setzen
-			//q[j] = 255;
-			//else
-			//q[j] = 0;
-
-			q[j] = g / 2 - r / 2 - b / 2 + 128;
-		}
-	}
-	return O;
-}
-
 
 /**
 * Helper function to find a cosine of angle between vectors
@@ -333,20 +235,15 @@ int main()
 	Rect region_of_interest2;
 
 
-	
-
 	while (1)
 	{
-
 		
 		//für Kamera!
 		//videoCapture >> input_image;
 
 		//input = imread("Dreieck_Scene.JPG");
-		//input = imread("Dreieck_Scene_2.JPG");
+		input = imread("Dreieck_Scene_2.JPG");
 		//input = imread("Testbild1.png"); 
-		input = imread("Viereck_7.JPG");
-		
 		//input = imread("STOP_Scene_e.jpg");
 		//look_for_red(input);
 
@@ -359,10 +256,8 @@ int main()
 		imshow("Input", input_image_clone);
 
 	
-		//auf rot beschränken! funktioniert nur sehr schlecht! andere farberkennung nötig!!
-		//input_image = look_for_red(input);
-		//input_image = look_for_yellow(input);
-		input_image = input;
+		//auf rot beschränken!
+		input_image = look_for_red(input);
 
 		imshow("Look for red", input_image);
 
@@ -412,7 +307,7 @@ int main()
 				// Approximate contour with accuracy proportional
 				// to the contour perimeter
 				//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
-				cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.02, true); //(0.012 optimal, 0.02 original)
+				cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.012, true); //(0.012)
 
 				// Skip small or non-convex objects 
 				if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
@@ -467,11 +362,7 @@ int main()
 					*/
 
 					if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3) //95°-72°
-					{
-				
-						if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
-						else setLabel(dst, "RAUT", contours[i]);
-					}
+						setLabel(dst, "RECT", contours[i]);
 					else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
 						setLabel(dst, "PENTA", contours[i]);
 					//deactivated for testing!
