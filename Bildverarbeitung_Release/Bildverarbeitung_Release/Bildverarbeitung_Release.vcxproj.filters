@@ -18,5 +18,8 @@
     <ClCompile Include="..\Stop-Schild_Test_Contours.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Schild_Test_Contours_Konsole.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

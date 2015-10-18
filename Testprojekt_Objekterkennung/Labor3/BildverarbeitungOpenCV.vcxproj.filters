@@ -33,5 +33,13 @@
     <ClCompile Include="Contours_Video.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Stop-Schild_Test_Konsole_Matching.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Erkenntnisse_18_10_15.txt">
+      <Filter>Quelldateien</Filter>
+    </Text>
   </ItemGroup>
 </Project>

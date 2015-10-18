@@ -346,8 +346,10 @@ int main()
 		//für Kamera!
 		//videoCapture >> input_image;
 
-		//input = imread("Dreieck_Scene.JPG");
 		input = imread("Dreieck_Scene_2.JPG");
+		//input = imread("Dreieck_93.JPG");
+		//input = imread("Dreieck_3.JPG");
+		
 		//input = imread("Testbild1.png"); 
 		//input = imread("Viereck_7.JPG");
 		
@@ -375,8 +377,12 @@ int main()
 		cv::cvtColor(input_image, hsv_image, cv::COLOR_BGR2HSV);
 		cv::Mat lower_red_hue_range;
 		cv::Mat upper_red_hue_range;
-		cv::inRange(hsv_image, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), lower_red_hue_range);
-		cv::inRange(hsv_image, cv::Scalar(160, 100, 100), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
+		//original: (0,100,100); (160,100,100)
+		//cv::inRange(hsv_image, cv::Scalar(0, 80, 80), cv::Scalar(10, 255, 255), lower_red_hue_range);
+		//cv::inRange(hsv_image, cv::Scalar(160, 80, 80), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
+		//testwerte:
+		cv::inRange(hsv_image, cv::Scalar(0, 40, 40), cv::Scalar(15, 255, 255), lower_red_hue_range);
+		cv::inRange(hsv_image, cv::Scalar(160, 40, 40), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
 		cv::Mat red_hue_image;
 		cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, input_image);
 
@@ -384,16 +390,20 @@ int main()
 
 		//ganz wichtig: filtern, um massenhaft Kleinview-Contouren zu eliminieren
 		//Nicht übertreiben! Size(21,21) klappt bei einigen Bildern, bei anderen ist 5,5 schon zu viel! Testen!
-		GaussianBlur(input_image, input_image, Size(3, 3), 0, 0);
-		imshow("Filtered", input_image);
+		//offenbar besser ohne!
+		//GaussianBlur(input_image, input_image, Size(1, 1), 0, 0);
+		//imshow("Filtered", input_image);
 
 		
 
-		// Convert to binary image using Canny //überflüssig bei binär-farbraum!
-		cv::Mat bw;
-		cv::Canny(input_image, bw, 0, 50, 5);
+		// Convert to binary image using Canny //sehr fraglich! Teilweise bessere Ergenisse ohne Kantendedektion (nur Filter + Find Contours)
+		//bewtrifft jeodch nur wenige Sonderfälle!
+		//bisher beste Ergebnisse mit weniger strengen Farbfiltern, keinem Gauss-Filter, aber Canny!
+		cv::Mat bw;// = input_image;
+		cv::Canny(input_image, bw, 0, 50, 5,true); //true= more accurate filter, 3 better than 5? found here:
+		//http://docs.opencv.org/modules/imgproc/doc/feature_detection.html?highlight=canny#canny
 
-		
+		imshow("BBW", bw);	
 
 		/*operation: The kind of morphology transformation to be performed. Note that we have 5 alternatives:
 		Opening: MORPH_OPEN : 2
@@ -414,7 +424,23 @@ int main()
 
 			// Find contours
 			std::vector<std::vector<cv::Point> > contours;
-			cv::findContours(bw.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+			cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+			//bisher: LIST besser als EXTERNAL, aber dafür Doppel-Erkennung! Ggf. Abbruch, wenn eins erkannt?
+			/*
+			CV_RETR_EXTERNAL retrieves only the extreme outer contours. It sets hierarchy[i][2]=hierarchy[i][3]=-1 for all the contours.
+			CV_RETR_LIST retrieves all of the contours without establishing any hierarchical relationships.
+			CV_RETR_CCOMP retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. At the second level, there are boundaries of the holes. If there is another contour inside a hole of a connected component, it is still put at the top level.
+			CV_RETR_TREE retrieves all of the contours and reconstructs a full hierarchy of nested contours. This full hierarchy is built and shown in the OpenCV contours.c demo.
+
+			method –
+
+			Contour approximation method (if you use Python see also a note below).
+
+			CV_CHAIN_APPROX_NONE stores absolutely all the contour points. That is, any 2 subsequent points (x1,y1) and (x2,y2) of the contour will be either horizontal, vertical or diagonal neighbors, that is, max(abs(x1-x2),abs(y2-y1))==1.
+			CV_CHAIN_APPROX_SIMPLE compresses horizontal, vertical, and diagonal segments and leaves only their end points. For example, an up-right rectangular contour is encoded with 4 points.
+			CV_CHAIN_APPROX_TC89_L1,CV_CHAIN_APPROX_TC89_KCOS applies one of the flavors of the Teh-Chin chain approximation algorithm. See [TehChin89] for details.
+
+			*/
 
 			
 
@@ -433,7 +459,7 @@ int main()
 				
 
 				// Skip small or non-convex objects 
-				if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
+				if (std::fabs(cv::contourArea(contours[i])) < 1000  || !cv::isContourConvex(approx))
 					continue;
 
 				//cv::Mat cvt(contours, false);
@@ -449,7 +475,10 @@ int main()
 				{
 					//check direction here
 					if((triangle_check(approx[0], approx[1], approx[2]))==0)
+					{
 						setLabel(dst, "TRI DOWN", contours[i]);    // Triangles (Schild)
+						break; //bei einem Dreieck erkannt: abbruch!
+					}
 					else
 						setLabel(dst, "TRI UP", contours[i]);    // Triangles (kein Schild)
 				}
