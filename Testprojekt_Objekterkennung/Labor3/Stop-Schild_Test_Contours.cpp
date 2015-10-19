@@ -1,4 +1,8 @@
-﻿//Robert
+﻿//Sources:
+
+//http://opencv-code.com/tutorials/detecting-simple-shapes-in-an-image/
+//http://www.codeproject.com/Articles/850023/Color-Based-Object-Detection
+
 
 #include <iostream>
 #include <omp.h>
@@ -18,6 +22,10 @@
 
 using namespace cv;
 using namespace xfeatures2d;
+
+
+//gloabals functions
+
 
 //draw a box
 CvRect box = cvRect(50, 50, 100, 100);
@@ -166,9 +174,6 @@ int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
 		
 	}
 
-	
-
-
 }
 
 //////////////
@@ -263,6 +268,7 @@ Mat look_for_yellow(const Mat &I)
 /**
 * Helper function to find a cosine of angle between vectors
 * from pt0->pt1 and pt0->pt2
+*found here: 
 */
 static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 {
@@ -291,8 +297,161 @@ void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& cont
 	cv::putText(im, label, pt, fontface, scale, CV_RGB(0, 0, 0), thickness, 8);
 }
 
+/**
+* Helper function to find red areals
+*/
+Mat check_red_range(const Mat& in)
+{
+	cv::Mat hsv_image;
+	cv::Mat out;
+	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
+	cv::Mat lower_red_hue_range;
+	cv::Mat upper_red_hue_range;
 
-int main()
+	//original: (0,100,100) bis (10, 255, 255); (160,100,100) bis (179, 255, 255),
+	//testwerte:
+	cv::inRange(hsv_image, cv::Scalar(0, 80, 40), cv::Scalar(18, 255, 255), lower_red_hue_range);
+	cv::inRange(hsv_image, cv::Scalar(160, 80, 40), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
+	cv::Mat red_hue_image;
+	cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, out);
+
+	return out;
+
+}
+
+/**
+* Helper function to find yellow areals
+*/
+Mat check_yellow_range(const Mat& in)
+{
+	cv::Mat hsv_image;
+	cv::Mat out;
+	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
+	cv::inRange(hsv_image, cv::Scalar(14, 60, 40), cv::Scalar(32, 255, 255), out);
+
+	return out;
+
+}
+
+Mat find_shapes(const Mat& in, const Mat& original)
+{
+		Mat bw = in;
+		Mat input = original;
+		// Find contours
+		std::vector<std::vector<cv::Point> > contours;
+		cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+		//http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html?highlight=findcontours#findcontours
+
+		std::vector<cv::Point> approx;
+		cv::Mat dst = input.clone();
+		Scalar color = Scalar(0, 0, 255, 0);
+
+
+		for (int i = 0; i < contours.size(); i++)
+		{
+			// Approximate contour with accuracy proportional
+			// to the contour perimeter
+			//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
+			cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.02, true); //(0.012 optimal, 0.02 original)
+
+
+			// Skip small or non-convex objects 
+			if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
+				continue;
+
+			cv::Rect rec = cv::boundingRect(contours[i]);
+			cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
+
+			//draw contours
+			Scalar color = Scalar(0, 0, 255, 0);
+			drawContours(dst, contours, i, color);
+
+			if (approx.size() == 3)
+			{
+				//check direction here
+				if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
+				{
+					setLabel(dst, "TRI DOWN", contours[i]);    // Triangles (Schild)
+					break; //bei einem Dreieck erkannt: abbruch!
+				}
+				else
+					setLabel(dst, "TRI UP", contours[i]);    // Triangles (kein Schild)
+			}
+			else if (approx.size() >= 4 && approx.size() <= 8)
+			{
+				// Number of vertices of polygonal curve
+				int vtc = approx.size();
+
+				// Get the cosines of all corners
+				std::vector<double> cos;
+				for (int j = 2; j < vtc + 1; j++)
+					//TODO: find out, how this can work!
+					//atm this is not logical!
+					cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
+
+				// Sort ascending the cosine values
+				std::sort(cos.begin(), cos.end());
+
+				// Get the lowest and the highest cosine
+				double mincos = cos.front();
+				double maxcos = cos.back();
+
+				// Use the degrees obtained above and the number of vertices
+				// to determine the shape of the contour
+
+				//any form with n corners: sum of corners is (n-2)*180°
+				//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
+				//all rounded! TODO: set better values using Excel
+				printf("Max: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
+
+				/*Original
+				if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
+				setLabel(dst, "RECT", contours[i]);
+				else if (vtc == 5 && mincos >= -0.34 && maxcos <= -0.27)
+				setLabel(dst, "PENTA", contours[i]);
+				else if (vtc == 6 && mincos >= -0.55 && maxcos <= -0.45)
+				setLabel(dst, "HEXA", contours[i]);
+				*/
+
+				if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3) //95°-72°
+				{
+
+					if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
+					else setLabel(dst, "RAUT", contours[i]);
+				}
+				else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
+					setLabel(dst, "PENTA", contours[i]);
+				//deactivated for testing!
+				//Test-image failes with HEXA-forms => spread of angles get to high! (max -0.36, min -0.71)
+				//reason: two small angles... Should be no problem for traffic signs!
+
+				else if (vtc == 6)//&& mincos >= -0.55 && maxcos <= -0.45)// 123° - 116°  //-0,5 +- 0,05
+					setLabel(dst, "HEXA", contours[i]);
+				else if (vtc == 7)//&& mincos >= -0.67 && maxcos <= -0.57)// 128°+- 3,2° // -0,62 +- 0,05
+					setLabel(dst, "HEPTA", contours[i]);
+				else if (vtc == 8)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
+					setLabel(dst, "OCTA", contours[i]);
+			}
+			else
+			{
+				// Detect and label circles //TODO: find a better way!
+				double area = cv::contourArea(contours[i]);
+				cv::Rect r = cv::boundingRect(contours[i]);
+				int radius = r.width / 2;
+
+				if (std::abs(1 - ((double)r.width / r.height)) <= 0.2 &&
+					std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
+					setLabel(dst, "CIR", contours[i]);
+			}
+		}
+
+	return dst;
+
+}
+
+
+
+int main(int argc, char *argv[])
 {
 	int Wait_Time = 10;
 
@@ -325,7 +484,9 @@ int main()
 
 
 	cv::Mat input;
-	cv::Mat input_image; //Mat=Matrix
+	cv::Mat input_image; 
+	cv::Mat input_image_red;
+	cv::Mat input_image_yellow;
 	cv::Mat input_image_clone;
 	cv::Mat output_image;
 	cv::Mat input_image_clone_sw;
@@ -346,15 +507,22 @@ int main()
 		//für Kamera!
 		//videoCapture >> input_image;
 
-		input = imread("Dreieck_Scene_2.JPG");
-		//input = imread("Dreieck_93.JPG");
-		//input = imread("Dreieck_3.JPG");
+		if (argc == 1)
+		{
+			input = imread("Dreieck_Scene_2.JPG");
+			//input = imread("Dreieck_93.JPG");
+			//input = imread("Dreieck_3.JPG");
+
+			//input = imread("Testbild1.png"); 
+			//input = imread("Viereck_7.JPG");
+
+			//input = imread("STOP_Scene_e.jpg");
+			//look_for_red(input);
+		}
+		else
+			input = imread(argv[1]);
+			
 		
-		//input = imread("Testbild1.png"); 
-		//input = imread("Viereck_7.JPG");
-		
-		//input = imread("STOP_Scene_e.jpg");
-		//look_for_red(input);
 
 		//ROI für Quadrat anlegen
 		region_of_interest2 = box;
@@ -362,31 +530,31 @@ int main()
 		//draw rectangle
 		input_image_clone = input.clone();
 		cv::rectangle(input_image_clone, region_of_interest2, Scalar(0, 0, 255, 0));
-		imshow("Input", input_image_clone);
+		if (argc == 1)
+		{
+			imshow("Input", input_image_clone);
+		}
 
+
+		input_image = input.clone();
 	
-		//auf rot beschränken! funktioniert nur sehr schlecht! andere farberkennung nötig!!
+		//Farbfilterung
+
+		//Variante A
 		//input_image = look_for_red(input);
 		//input_image = look_for_yellow(input);
-		input_image = input;
 
+		//Variante B
+		input_image_red = check_red_range(input_image);
+		input_image_yellow = check_yellow_range(input_image);
 
-		//imshow("Look for red", input_image);
+		if (argc == 1)
+		{
+			imshow("Nach Gelb-Threshold", input_image_yellow);
+			imshow("Nach Rot-Threshold", input_image_red);
+		}
 
-		//alternative farbfilterung (in funktion auslaugern!)
-		cv::cvtColor(input_image, hsv_image, cv::COLOR_BGR2HSV);
-		cv::Mat lower_red_hue_range;
-		cv::Mat upper_red_hue_range;
-		//original: (0,100,100); (160,100,100)
-		//cv::inRange(hsv_image, cv::Scalar(0, 80, 80), cv::Scalar(10, 255, 255), lower_red_hue_range);
-		//cv::inRange(hsv_image, cv::Scalar(160, 80, 80), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
-		//testwerte:
-		cv::inRange(hsv_image, cv::Scalar(0, 40, 40), cv::Scalar(15, 255, 255), lower_red_hue_range);
-		cv::inRange(hsv_image, cv::Scalar(160, 40, 40), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
-		cv::Mat red_hue_image;
-		cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, input_image);
-
-		imshow("Nach Rot-Threshold", input_image);
+		//GAUSS-Filter
 
 		//ganz wichtig: filtern, um massenhaft Kleinview-Contouren zu eliminieren
 		//Nicht übertreiben! Size(21,21) klappt bei einigen Bildern, bei anderen ist 5,5 schon zu viel! Testen!
@@ -395,170 +563,46 @@ int main()
 		//imshow("Filtered", input_image);
 
 		
+		//Kantenerkennung
 
 		// Convert to binary image using Canny //sehr fraglich! Teilweise bessere Ergenisse ohne Kantendedektion (nur Filter + Find Contours)
 		//bewtrifft jeodch nur wenige Sonderfälle!
 		//bisher beste Ergebnisse mit weniger strengen Farbfiltern, keinem Gauss-Filter, aber Canny!
-		cv::Mat bw;// = input_image;
-		cv::Canny(input_image, bw, 0, 50, 5,true); //true= more accurate filter, 3 better than 5? found here:
+		cv::Mat bw_red;// = input_image;
+		cv::Canny(input_image_red, bw_red, 0, 50, 5,true); //true= more accurate filter, 3 better than 5? found here:
 		//http://docs.opencv.org/modules/imgproc/doc/feature_detection.html?highlight=canny#canny
 
-		imshow("BBW", bw);	
+		//find contours
 
-		/*operation: The kind of morphology transformation to be performed. Note that we have 5 alternatives:
-		Opening: MORPH_OPEN : 2
-		Closing: MORPH_CLOSE: 3
-		Gradient: MORPH_GRADIENT: 4
-		Top Hat: MORPH_TOPHAT: 5
-		Black Hat: MORPH_BLACKHAT: 6
-		*/
-
-		//show input
-		//imshow("Orginal", input);
+		Mat dst;
+		if (new_obj == true)
+		{
+			dst = find_shapes(bw_red, input);
+			if (argc == 1)
+			{
+				imshow("BBW", bw_red);
+				cv::imshow("src", input);
+				cv::imshow("dst", dst);
+				cv::imshow("bw", bw_red);
+			}
+		}
+			 
 
 		//for mouse-control!
 		//cvSetMouseCallback("Orginal", my_mouse_callback, 0);
 
-		if (new_obj)
-		{
-
-			// Find contours
-			std::vector<std::vector<cv::Point> > contours;
-			cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
-			//bisher: LIST besser als EXTERNAL, aber dafür Doppel-Erkennung! Ggf. Abbruch, wenn eins erkannt?
-			/*
-			CV_RETR_EXTERNAL retrieves only the extreme outer contours. It sets hierarchy[i][2]=hierarchy[i][3]=-1 for all the contours.
-			CV_RETR_LIST retrieves all of the contours without establishing any hierarchical relationships.
-			CV_RETR_CCOMP retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. At the second level, there are boundaries of the holes. If there is another contour inside a hole of a connected component, it is still put at the top level.
-			CV_RETR_TREE retrieves all of the contours and reconstructs a full hierarchy of nested contours. This full hierarchy is built and shown in the OpenCV contours.c demo.
-
-			method –
-
-			Contour approximation method (if you use Python see also a note below).
-
-			CV_CHAIN_APPROX_NONE stores absolutely all the contour points. That is, any 2 subsequent points (x1,y1) and (x2,y2) of the contour will be either horizontal, vertical or diagonal neighbors, that is, max(abs(x1-x2),abs(y2-y1))==1.
-			CV_CHAIN_APPROX_SIMPLE compresses horizontal, vertical, and diagonal segments and leaves only their end points. For example, an up-right rectangular contour is encoded with 4 points.
-			CV_CHAIN_APPROX_TC89_L1,CV_CHAIN_APPROX_TC89_KCOS applies one of the flavors of the Teh-Chin chain approximation algorithm. See [TehChin89] for details.
-
-			*/
-
-			
-
-			std::vector<cv::Point> approx;
-			cv::Mat dst = input.clone();
-			Scalar color = Scalar(0, 0, 255, 0);
-			
-
-			for (int i = 0; i < contours.size(); i++)
-			{
-				// Approximate contour with accuracy proportional
-				// to the contour perimeter
-				//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
-				cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.02, true); //(0.012 optimal, 0.02 original)
-
-				
-
-				// Skip small or non-convex objects 
-				if (std::fabs(cv::contourArea(contours[i])) < 1000  || !cv::isContourConvex(approx))
-					continue;
-
-				//cv::Mat cvt(contours, false);
-				//CvRect rect = cvBoundingRect(&cvt, 0); //extract bounding box for current contour
-			
-				//cv::rectangle(dst, rect, Scalar(0, 0, 255, 0));
-
-				//draw contours
-				Scalar color = Scalar(0, 0, 255, 0);
-				drawContours(dst, contours, i, color);
-
-				if (approx.size() == 3)
-				{
-					//check direction here
-					if((triangle_check(approx[0], approx[1], approx[2]))==0)
-					{
-						setLabel(dst, "TRI DOWN", contours[i]);    // Triangles (Schild)
-						break; //bei einem Dreieck erkannt: abbruch!
-					}
-					else
-						setLabel(dst, "TRI UP", contours[i]);    // Triangles (kein Schild)
-				}
-				else if (approx.size() >= 4 && approx.size() <= 8)
-				{
-					// Number of vertices of polygonal curve
-					int vtc = approx.size();
-
-					// Get the cosines of all corners
-					std::vector<double> cos;
-					for (int j = 2; j < vtc + 1; j++)
-						//TODO: find out, how this can work!
-						//atm this is not logical!
-						cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
-
-					// Sort ascending the cosine values
-					std::sort(cos.begin(), cos.end());
-
-					// Get the lowest and the highest cosine
-					double mincos = cos.front();
-					double maxcos = cos.back();
-
-					// Use the degrees obtained above and the number of vertices
-					// to determine the shape of the contour
-
-					//any form with n corners: sum of corners is (n-2)*180°
-					//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
-					//all rounded! TODO: set better values using Excel
-					printf("Max: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
-
-					/*Original
-					if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
-					setLabel(dst, "RECT", contours[i]);
-					else if (vtc == 5 && mincos >= -0.34 && maxcos <= -0.27)
-					setLabel(dst, "PENTA", contours[i]);
-					else if (vtc == 6 && mincos >= -0.55 && maxcos <= -0.45)
-					setLabel(dst, "HEXA", contours[i]);
-					*/
-
-					if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3) //95°-72°
-					{
-				
-						if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
-						else setLabel(dst, "RAUT", contours[i]);
-					}
-					else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
-						setLabel(dst, "PENTA", contours[i]);
-					//deactivated for testing!
-					//Test-image failes with HEXA-forms => spread of angles get to high! (max -0.36, min -0.71)
-					//reason: two small angles... Should be no problem for traffic signs!
-
-					else if (vtc == 6 )//&& mincos >= -0.55 && maxcos <= -0.45)// 123° - 116°  //-0,5 +- 0,05
-						setLabel(dst, "HEXA", contours[i]);
-					else if (vtc == 7 )//&& mincos >= -0.67 && maxcos <= -0.57)// 128°+- 3,2° // -0,62 +- 0,05
-						setLabel(dst, "HEPTA", contours[i]);
-					else if (vtc == 8)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
-						setLabel(dst, "OCTA", contours[i]);
-				}
-				else
-				{
-					// Detect and label circles
-					double area = cv::contourArea(contours[i]);
-					cv::Rect r = cv::boundingRect(contours[i]);
-					int radius = r.width / 2;
-
-					if (std::abs(1 - ((double)r.width / r.height)) <= 0.2 &&
-						std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
-						setLabel(dst, "CIR", contours[i]);
-				}
-			}
-
-			cv::imshow("src", input);
-			cv::imshow("dst", dst);
-			cv::imshow("bw", bw);
-
-	
-		}
-
 		new_obj = false;
 		new_match = false;
+
+		if (argc != 1) //Konsolenvariante muss hier enden + Ausgabe
+		{
+			std::string Str_Input = argv[1];
+			std::string result = Str_Input + "_tested.png";
+			std::cout << result << std::endl;
+			cv::imwrite(result, dst);
+			return 0;
+		}
+			
 		int c = cv::waitKey(Wait_Time); //entspricht "auffrischen" des Fensters: fragt nachrichten ab, erlaubt OS das Auffrischen des Fensters dazwischen
 
 		switch (c)

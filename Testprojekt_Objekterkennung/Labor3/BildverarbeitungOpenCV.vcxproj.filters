@@ -18,15 +18,6 @@
     <ClCompile Include="Labor3.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Stop-Schild_Test.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="PixelAccess.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Stop-Schild_Test_Konsole.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Stop-Schild_Test_Contours.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -34,6 +25,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Stop-Schild_Test_Konsole_Matching.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Stop-Schild_Test_Matching.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
