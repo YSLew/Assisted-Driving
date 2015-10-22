@@ -23,6 +23,15 @@
 using namespace cv;
 using namespace xfeatures2d;
 
+//defines
+#define RED 0
+#define YELLOW 1
+
+//FLAGS
+
+//#define CAMERA
+//#define DEBUG_OUTPUT
+
 
 //gloabals functions
 
@@ -115,12 +124,12 @@ int triangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2)
 	{
 		//attention: when using image coordinates 0|0 is in the upper left corner!
 		//this means inverting logic!
-		printf("Spitze oben");
+		//printf("Spitze oben\n");
 		return 1;
 	}
 	else
 	{
-		printf("Spitze unten");
+		//printf("Spitze unten\n");
 		return 0;
 	}
 
@@ -128,12 +137,12 @@ int triangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2)
 
 int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
 {
-	int i,j;
+	int i, j;
 	int min = 1000;
 	int array[4];
 	int swap;
 
-	int A, B, C,D;
+	int A, B, C, D;
 
 	array[0] = pt0.y;
 	array[1] = pt1.y;
@@ -142,7 +151,7 @@ int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
 
 	for (i = 0; i< 4; i++)
 	{
-		for (j = i+1; j<4; j++)
+		for (j = i + 1; j<4; j++)
 		{
 			if (array[i] > array[j]) /* For decreasing order use < */
 			{
@@ -163,15 +172,15 @@ int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
 
 	if (DC > (AD / 4))
 	{
-		printf("Quadrat");
+		//printf("Quadrat\n");
 		return 0;
-		
+
 	}
 	else
 	{
-		printf("Raute");
+		//printf("Raute \n");
 		return 1;
-		
+
 	}
 
 }
@@ -268,7 +277,7 @@ Mat look_for_yellow(const Mat &I)
 /**
 * Helper function to find a cosine of angle between vectors
 * from pt0->pt1 and pt0->pt2
-*found here: 
+*found here:
 */
 static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 {
@@ -333,117 +342,126 @@ Mat check_yellow_range(const Mat& in)
 
 }
 
-Mat find_shapes(const Mat& in, const Mat& original)
+Mat find_shapes(const Mat& in, const Mat& original, int colour)
 {
-		Mat bw = in;
-		Mat input = original;
-		// Find contours
-		std::vector<std::vector<cv::Point> > contours;
-		cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
-		//http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html?highlight=findcontours#findcontours
+	Mat bw = in;
+	Mat input = original;
+	// Find contours
+	std::vector<std::vector<cv::Point> > contours;
+	cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+	//http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html?highlight=findcontours#findcontours
 
-		std::vector<cv::Point> approx;
-		cv::Mat dst = input.clone();
+	std::vector<cv::Point> approx;
+	cv::Mat dst = input.clone();
+	Scalar color = Scalar(0, 0, 255, 0);
+
+
+	for (int i = 0; i < contours.size(); i++)
+	{
+		// Approximate contour with accuracy proportional
+		// to the contour perimeter
+		//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
+		//DIESEN PARAMTER OPTIMIEREN!
+		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.020, true); //(0.012 optimal, 0.02 original)
+
+
+		// Skip small or non-convex objects 
+		if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
+			continue;
+
+		cv::Rect rec = cv::boundingRect(contours[i]);
+		cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
+
+		//draw contours
 		Scalar color = Scalar(0, 0, 255, 0);
+		drawContours(dst, contours, i, color);
 
-
-		for (int i = 0; i < contours.size(); i++)
+		if (approx.size() == 3 && colour == RED)
 		{
-			// Approximate contour with accuracy proportional
-			// to the contour perimeter
-			//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
-			cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.02, true); //(0.012 optimal, 0.02 original)
-
-
-			// Skip small or non-convex objects 
-			if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
-				continue;
-
-			cv::Rect rec = cv::boundingRect(contours[i]);
-			cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-
-			//draw contours
-			Scalar color = Scalar(0, 0, 255, 0);
-			drawContours(dst, contours, i, color);
-
-			if (approx.size() == 3)
+			//check direction here
+			if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
 			{
-				//check direction here
-				if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
-				{
-					setLabel(dst, "TRI DOWN", contours[i]);    // Triangles (Schild)
-					break; //bei einem Dreieck erkannt: abbruch!
-				}
-				else
-					setLabel(dst, "TRI UP", contours[i]);    // Triangles (kein Schild)
-			}
-			else if (approx.size() >= 4 && approx.size() <= 8)
-			{
-				// Number of vertices of polygonal curve
-				int vtc = approx.size();
-
-				// Get the cosines of all corners
-				std::vector<double> cos;
-				for (int j = 2; j < vtc + 1; j++)
-					//TODO: find out, how this can work!
-					//atm this is not logical!
-					cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
-
-				// Sort ascending the cosine values
-				std::sort(cos.begin(), cos.end());
-
-				// Get the lowest and the highest cosine
-				double mincos = cos.front();
-				double maxcos = cos.back();
-
-				// Use the degrees obtained above and the number of vertices
-				// to determine the shape of the contour
-
-				//any form with n corners: sum of corners is (n-2)*180°
-				//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
-				//all rounded! TODO: set better values using Excel
-				printf("Max: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
-
-				/*Original
-				if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
-				setLabel(dst, "RECT", contours[i]);
-				else if (vtc == 5 && mincos >= -0.34 && maxcos <= -0.27)
-				setLabel(dst, "PENTA", contours[i]);
-				else if (vtc == 6 && mincos >= -0.55 && maxcos <= -0.45)
-				setLabel(dst, "HEXA", contours[i]);
-				*/
-
-				if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3) //95°-72°
-				{
-
-					if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
-					else setLabel(dst, "RAUT", contours[i]);
-				}
-				else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
-					setLabel(dst, "PENTA", contours[i]);
-				//deactivated for testing!
-				//Test-image failes with HEXA-forms => spread of angles get to high! (max -0.36, min -0.71)
-				//reason: two small angles... Should be no problem for traffic signs!
-
-				else if (vtc == 6)//&& mincos >= -0.55 && maxcos <= -0.45)// 123° - 116°  //-0,5 +- 0,05
-					setLabel(dst, "HEXA", contours[i]);
-				else if (vtc == 7)//&& mincos >= -0.67 && maxcos <= -0.57)// 128°+- 3,2° // -0,62 +- 0,05
-					setLabel(dst, "HEPTA", contours[i]);
-				else if (vtc == 8)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
-					setLabel(dst, "OCTA", contours[i]);
+				setLabel(dst, "VF_GW", contours[i]);    // Triangles (Schild)
+				//break; //bei einem Dreieck erkannt: abbruch!
 			}
 			else
-			{
-				// Detect and label circles //TODO: find a better way!
-				double area = cv::contourArea(contours[i]);
-				cv::Rect r = cv::boundingRect(contours[i]);
-				int radius = r.width / 2;
-
-				if (std::abs(1 - ((double)r.width / r.height)) <= 0.2 &&
-					std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
-					setLabel(dst, "CIR", contours[i]);
-			}
+				setLabel(dst, "WARN", contours[i]);    // Triangles (kein Schild)
 		}
+		else if (approx.size() >= 4 && approx.size() <= 8)
+		{
+			// Number of vertices of polygonal curve
+			int vtc = approx.size();
+
+			//Winkelbetrachtung ggf. überflüssig für gestauchte/gestreckte Schilder? Zeitfrage!
+			// Get the cosines of all corners
+			std::vector<double> cos;
+			for (int j = 2; j < vtc + 1; j++)
+				//TODO: find out, how this can work!
+				//atm this is not logical!
+				cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
+
+			// Sort ascending the cosine values
+			std::sort(cos.begin(), cos.end());
+
+			// Get the lowest and the highest cosine
+			double mincos = cos.front();
+			double maxcos = cos.back();
+
+			// Use the degrees obtained above and the number of vertices
+			// to determine the shape of the contour
+
+			//any form with n corners: sum of corners is (n-2)*180°
+			//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
+			//all rounded! TODO: set better values using Excel
+			printf("\nMax: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
+
+			/*Original
+			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
+			setLabel(dst, "RECT", contours[i]);
+			else if (vtc == 5 && mincos >= -0.34 && maxcos <= -0.27)
+			setLabel(dst, "PENTA", contours[i]);
+			else if (vtc == 6 && mincos >= -0.55 && maxcos <= -0.45)
+			setLabel(dst, "HEXA", contours[i]);
+			*/
+
+			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3 && colour == YELLOW) //95°-72°
+			{
+
+				if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
+				else
+				{
+					setLabel(dst, "VF_STR", contours[i]);
+					//break;
+				}
+			}
+			/*else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
+			setLabel(dst, "PENTA", contours[i]);*/
+
+			//deactivated for testing!
+			//Test-image failes with HEXA-forms => spread of angles get to high! (max -0.36, min -0.71)
+			//reason: two small angles... Should be no problem for traffic signs!
+
+			/*else if (vtc == 6)//&& mincos >= -0.55 && maxcos <= -0.45)// 123° - 116°  //-0,5 +- 0,05
+			setLabel(dst, "HEXA", contours[i]);
+			else if (vtc == 7)//&& mincos >= -0.67 && maxcos <= -0.57)// 128°+- 3,2° // -0,62 +- 0,05
+			setLabel(dst, "HEPTA", contours[i]);*/
+
+			else if (vtc == 8 && colour == RED)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
+				setLabel(dst, "STOP", contours[i]);
+		}
+		else
+		{
+			// Detect and label circles //TODO: find a better way!
+			//double area = cv::contourArea(contours[i]);
+			//cv::Rect r = cv::boundingRect(contours[i]);
+			//int radius = r.width / 2;
+
+			//if (std::abs(1 - ((double)r.width / r.height)) <= 0.2 &&
+			//std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
+			//simplified
+			setLabel(dst, "CIR", contours[i]);
+		}
+	}
 
 	return dst;
 
@@ -457,34 +475,39 @@ int main(int argc, char *argv[])
 
 	std::cout << "Hello OpenCV" << std::endl;
 
-	/* //für Webcam!
-	cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
+	//für Webcam!
+#ifdef CAMERA
+
+	//cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
+	//cv::VideoCapture videoCapture("http://docs.gstreamer.com/media/sintel_cropped_multilingual.webm");
+	//alternative: festes Video!
+	cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/VZ_clip1.mp4");
 
 	videoCapture.set(CAP_PROP_FRAME_WIDTH, 800);
 	videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 600);
 
-	int w = videoCapture.get(CAP_PROP_FRAME_WIDTH);
-	int h = videoCapture.get(cv::CAP_PROP_FRAME_HEIGHT);
-	*/
-
+	//int w = videoCapture.get(CAP_PROP_FRAME_WIDTH);
+	//int h = videoCapture.get(cv::CAP_PROP_FRAME_HEIGHT);
 
 	/*bool ok = videoCapture.open(0);
 	if (!ok)
 	{
 	std::cerr << "no camera found, exit" << std::endl;
+	return  -1;
 	}*/
+#endif;
+
 
 
 	bool new_obj = true;
-	bool new_match = false;
+	bool new_match = true;
 
 	//mouse callback
 	//namedWindow("Input", WINDOW_AUTOSIZE);
 	//namedWindow("Output", WINDOW_AUTOSIZE);
 
-
 	cv::Mat input;
-	cv::Mat input_image; 
+	cv::Mat input_image;
 	cv::Mat input_image_red;
 	cv::Mat input_image_yellow;
 	cv::Mat input_image_clone;
@@ -495,34 +518,39 @@ int main(int argc, char *argv[])
 
 	// Convert input image to HSV
 	cv::Mat hsv_image;
-	
+
 	// Threshold the HSV image, keep only the red pixels
 
-		
 
 	while (1)
 	{
 
-		
-		//für Kamera!
-		//videoCapture >> input_image;
+#ifdef CAMERA
+		videoCapture >> input;
 
+
+#endif;
+
+
+
+#ifndef CAMERA
 		if (argc == 1)
 		{
-			input = imread("Dreieck_Scene_2.JPG");
+			//input = imread("Dreieck_Scene_2.JPG");
 			//input = imread("Dreieck_93.JPG");
 			//input = imread("Dreieck_3.JPG");
 
-			//input = imread("Testbild1.png"); 
-			//input = imread("Viereck_7.JPG");
+			//input = imread("Testbild_Color.png"); 
+			input = imread("Viereck_7.JPG");
 
 			//input = imread("STOP_Scene_e.jpg");
 			//look_for_red(input);
 		}
 		else
 			input = imread(argv[1]);
-			
-		
+#endif;	
+
+		input_image = input.clone();
 
 		//ROI für Quadrat anlegen
 		region_of_interest2 = box;
@@ -532,12 +560,12 @@ int main(int argc, char *argv[])
 		cv::rectangle(input_image_clone, region_of_interest2, Scalar(0, 0, 255, 0));
 		if (argc == 1)
 		{
-			imshow("Input", input_image_clone);
+			//imshow("Input", input_image_clone);
 		}
 
 
-		input_image = input.clone();
-	
+		//input_image = input.clone();
+
 		//Farbfilterung
 
 		//Variante A
@@ -550,43 +578,51 @@ int main(int argc, char *argv[])
 
 		if (argc == 1)
 		{
+#ifdef DEBUG_OUTPUT
 			imshow("Nach Gelb-Threshold", input_image_yellow);
 			imshow("Nach Rot-Threshold", input_image_red);
+#endif
 		}
 
 		//GAUSS-Filter
 
-		//ganz wichtig: filtern, um massenhaft Kleinview-Contouren zu eliminieren
-		//Nicht übertreiben! Size(21,21) klappt bei einigen Bildern, bei anderen ist 5,5 schon zu viel! Testen!
 		//offenbar besser ohne!
 		//GaussianBlur(input_image, input_image, Size(1, 1), 0, 0);
 		//imshow("Filtered", input_image);
 
-		
+
 		//Kantenerkennung
 
 		// Convert to binary image using Canny //sehr fraglich! Teilweise bessere Ergenisse ohne Kantendedektion (nur Filter + Find Contours)
 		//bewtrifft jeodch nur wenige Sonderfälle!
 		//bisher beste Ergebnisse mit weniger strengen Farbfiltern, keinem Gauss-Filter, aber Canny!
 		cv::Mat bw_red;// = input_image;
-		cv::Canny(input_image_red, bw_red, 0, 50, 5,true); //true= more accurate filter, 3 better than 5? found here:
+		cv::Canny(input_image_red, bw_red, 0, 50, 5, true); //true= more accurate filter, 3 better than 5? found here:
 		//http://docs.opencv.org/modules/imgproc/doc/feature_detection.html?highlight=canny#canny
+
+		cv::Mat bw_yellow;
+		cv::Canny(input_image_yellow, bw_yellow, 0, 50, 5, true);
 
 		//find contours
 
-		Mat dst;
-		if (new_obj == true)
+		Mat dst, dst_y;
+		//if (new_obj == true)
+		//{
+		dst = find_shapes(bw_red, input, RED);
+		dst_y = find_shapes(bw_yellow, dst, YELLOW);
+		if (argc == 1)
 		{
-			dst = find_shapes(bw_red, input);
-			if (argc == 1)
-			{
-				imshow("BBW", bw_red);
-				cv::imshow("src", input);
-				cv::imshow("dst", dst);
-				cv::imshow("bw", bw_red);
-			}
+#ifdef DEBUG_OUTPUT
+			imshow("BBW", bw_red);
+			cv::imshow("src", input);
+			cv::imshow("dst", dst);
+			cv::imshow("bw", bw_red);
+			cv::imshow("bw_y", bw_yellow);
+#endif
+			cv::imshow("dst_y", dst_y);
 		}
-			 
+		//}
+
 
 		//for mouse-control!
 		//cvSetMouseCallback("Orginal", my_mouse_callback, 0);
@@ -594,15 +630,19 @@ int main(int argc, char *argv[])
 		new_obj = false;
 		new_match = false;
 
+#ifndef CAMERA
 		if (argc != 1) //Konsolenvariante muss hier enden + Ausgabe
 		{
 			std::string Str_Input = argv[1];
+			std::string result_y = Str_Input + "_tested_yellow.png";
 			std::string result = Str_Input + "_tested.png";
 			std::cout << result << std::endl;
+			cv::imwrite(result_y, dst_y);
 			cv::imwrite(result, dst);
 			return 0;
 		}
-			
+#endif
+
 		int c = cv::waitKey(Wait_Time); //entspricht "auffrischen" des Fensters: fragt nachrichten ab, erlaubt OS das Auffrischen des Fensters dazwischen
 
 		switch (c)

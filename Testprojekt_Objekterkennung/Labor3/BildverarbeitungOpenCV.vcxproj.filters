@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Labor3.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Stop-Schild_Test_Contours.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Contours_Video.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Stop-Schild_Test_Konsole_Matching.cpp">
