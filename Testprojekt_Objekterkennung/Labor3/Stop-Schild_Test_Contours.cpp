@@ -354,6 +354,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 	std::vector<cv::Point> approx;
 	cv::Mat dst = input.clone();
 	Scalar color = Scalar(0, 0, 255, 0);
+	cv::Rect rec;
 
 
 	for (int i = 0; i < contours.size(); i++)
@@ -369,12 +370,13 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 		if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
 			continue;
 
-		cv::Rect rec = cv::boundingRect(contours[i]);
-		cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
+		
 
-		//draw contours
-		Scalar color = Scalar(0, 0, 255, 0);
-		drawContours(dst, contours, i, color);
+		//draw contours - now only if sign is detected
+		//Scalar color = Scalar(0, 0, 255, 0);
+		
+		//look for signs
+		//if sign is found in correct colour draw the contour and the border and break the loop
 
 		if (approx.size() == 3 && colour == RED)
 		{
@@ -382,10 +384,19 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 			if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
 			{
 				setLabel(dst, "VF_GW", contours[i]);    // Triangles (Schild)
-				//break; //bei einem Dreieck erkannt: abbruch!
+				drawContours(dst, contours, i, color);
+				rec = cv::boundingRect(contours[i]);
+				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
+				break; //bei einem Dreieck erkannt: abbruch!
 			}
 			else
+			{
 				setLabel(dst, "WARN", contours[i]);    // Triangles (kein Schild)
+				drawContours(dst, contours, i, color);
+				rec = cv::boundingRect(contours[i]);
+				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
+				break;
+			}
 		}
 		else if (approx.size() >= 4 && approx.size() <= 8)
 		{
@@ -415,6 +426,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 			//all rounded! TODO: set better values using Excel
 			printf("\nMax: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
 
+
 			/*Original
 			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3)
 			setLabel(dst, "RECT", contours[i]);
@@ -431,7 +443,9 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 				else
 				{
 					setLabel(dst, "VF_STR", contours[i]);
-					//break;
+					drawContours(dst, contours, i, color);
+					rec = cv::boundingRect(contours[i]);
+					break;
 				}
 			}
 			/*else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
@@ -447,7 +461,12 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 			setLabel(dst, "HEPTA", contours[i]);*/
 
 			else if (vtc == 8 && colour == RED)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
+			{
 				setLabel(dst, "STOP", contours[i]);
+				drawContours(dst, contours, i, color);
+				rec = cv::boundingRect(contours[i]);
+				break;
+			}
 		}
 		else
 		{
@@ -460,6 +479,8 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 			//std::abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2)
 			//simplified
 			setLabel(dst, "CIR", contours[i]);
+			drawContours(dst, contours, i, color);
+			rec = cv::boundingRect(contours[i]);
 		}
 	}
 
@@ -478,13 +499,13 @@ int main(int argc, char *argv[])
 	//für Webcam!
 #ifdef CAMERA
 
-	//cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
+	cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
 	//cv::VideoCapture videoCapture("http://docs.gstreamer.com/media/sintel_cropped_multilingual.webm");
 	//alternative: festes Video!
-	cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/VZ_clip1.mp4");
+	//cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/VZ_clip1.mp4");
 
-	videoCapture.set(CAP_PROP_FRAME_WIDTH, 800);
-	videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 600);
+	videoCapture.set(CAP_PROP_FRAME_WIDTH, 1920);
+	videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
 
 	//int w = videoCapture.get(CAP_PROP_FRAME_WIDTH);
 	//int h = videoCapture.get(cv::CAP_PROP_FRAME_HEIGHT);
@@ -524,6 +545,9 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
+		double t = (double)getTickCount();
+		// do something ...
+		
 
 #ifdef CAMERA
 		videoCapture >> input;
@@ -634,11 +658,11 @@ int main(int argc, char *argv[])
 		if (argc != 1) //Konsolenvariante muss hier enden + Ausgabe
 		{
 			std::string Str_Input = argv[1];
-			std::string result_y = Str_Input + "_tested_yellow.png";
-			std::string result = Str_Input + "_tested.png";
-			std::cout << result << std::endl;
+			std::string result_y = Str_Input + "_tested.png";
+			//std::string result = Str_Input + "_tested.png";
+			std::cout << result_y << std::endl;
 			cv::imwrite(result_y, dst_y);
-			cv::imwrite(result, dst);
+			//cv::imwrite(result, dst);
 			return 0;
 		}
 #endif
@@ -663,6 +687,8 @@ int main(int argc, char *argv[])
 					break;
 		}
 		}
+		t = ((double)getTickCount() - t) / getTickFrequency();
+		printf("%0.2f\n", t);
 	}
 
 	return 0;

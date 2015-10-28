@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Schild_Test_Contours_Konsole.cpp">
+    <ClCompile Include="..\..\Testprojekt_Objekterkennung\Labor3\Stop-Schild_Test_Contours.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
