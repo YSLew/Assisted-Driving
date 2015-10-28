@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Testprojekt_Objekterkennung\Labor3\Stop-Schild_Test_Contours.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6A0135A8-60BE-4D0C-A2CC-160F5FF0E5A0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -145,9 +148,6 @@
       <AdditionalDependencies>opencv_bgsegm300.lib;opencv_bioinspired300.lib;opencv_calib3d300.lib;opencv_ccalib300.lib;opencv_core300.lib;opencv_datasets300.lib;opencv_face300.lib;opencv_features2d300.lib;opencv_flann300.lib;opencv_hal300.lib;opencv_highgui300.lib;opencv_imgcodecs300.lib;opencv_imgproc300.lib;opencv_latentsvm300.lib;opencv_line_descriptor300.lib;opencv_ml300.lib;opencv_objdetect300.lib;opencv_optflow300.lib;opencv_photo300.lib;opencv_reg300.lib;opencv_rgbd300.lib;opencv_saliency300.lib;opencv_shape300.lib;opencv_stitching300.lib;opencv_superres300.lib;opencv_surface_matching300.lib;opencv_text300.lib;opencv_tracking300.lib;opencv_ts300.lib;opencv_video300.lib;opencv_videoio300.lib;opencv_videostab300.lib;opencv_xfeatures2d300.lib;opencv_ximgproc300.lib;opencv_xobjdetect300.lib;opencv_xphoto300.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Schild_Test_Contours_Konsole.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
