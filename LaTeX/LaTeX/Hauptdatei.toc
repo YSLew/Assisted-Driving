@@ -1,0 +1,56 @@
+\select@language {ngerman}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.2}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IV}{chapter*.3}
+\contentsline {chapter}{\nonumberline Listingverzeichnis}{V}{chapter*.4}
+\contentsline {chapter}{\nonumberline Formelverzeichnis}{VI}{chapter*.5}
+\contentsline {chapter}{\nonumberline Abk\"urzungsverzeichnis}{VII}{chapter*.6}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.7}
+\contentsline {section}{\numberline {1.1}Inhalt der Arbeit und Gliederung}{1}{section.8}
+\contentsline {chapter}{\numberline {2}Lastenheft}{2}{chapter.9}
+\contentsline {section}{\numberline {2.1}Einf\"uhrung}{2}{section.10}
+\contentsline {section}{\numberline {2.2}Zielsetzung}{2}{section.11}
+\contentsline {section}{\numberline {2.3}Anforderungen}{2}{section.12}
+\contentsline {subsection}{\numberline {2.3.1}Definition der Schilder}{3}{subsection.13}
+\contentsline {section}{\numberline {2.4}Spezifikation des Systems}{4}{section.19}
+\contentsline {subsection}{\numberline {2.4.1}Hauptkomponenten}{4}{subsection.20}
+\contentsline {subsection}{\numberline {2.4.2}Systemumgebung}{4}{subsection.21}
+\contentsline {subsection}{\numberline {2.4.3}Systemspezifikationen}{4}{subsection.22}
+\contentsline {section}{\numberline {2.5}Nicht unterst\"utzte Informationssysteme}{4}{section.23}
+\contentsline {section}{\numberline {2.6}Grenzen des Systems}{5}{section.24}
+\contentsline {section}{\numberline {2.7}Gesamtarchitektur}{5}{section.25}
+\contentsline {subsection}{\numberline {2.7.1}Prinzipieller Ablauf}{5}{subsection.26}
+\contentsline {chapter}{\numberline {3}Pflichtenheft}{6}{chapter.28}
+\contentsline {section}{\numberline {3.1}Projektziel/Einf\"uhrung}{6}{section.29}
+\contentsline {section}{\numberline {3.2}Anforderungsanalyse}{6}{section.31}
+\contentsline {subsection}{\numberline {3.2.1}Muss-Anforderungen}{6}{subsection.32}
+\contentsline {subsection}{\numberline {3.2.2}Soll-Anforderungen}{7}{subsection.39}
+\contentsline {subsection}{\numberline {3.2.3}Kann-Anforderungen}{7}{subsection.45}
+\contentsline {section}{\numberline {3.3}Entwicklungstools}{8}{section.51}
+\contentsline {section}{\numberline {3.4}Hauptkomponenten}{8}{section.56}
+\contentsline {subsection}{\numberline {3.4.1}Algorithmischer Ansatz}{8}{subsection.57}
+\contentsline {subsection}{\numberline {3.4.2}Hardware}{9}{subsection.58}
+\contentsline {subsection}{\numberline {3.4.3}Kamera}{9}{subsection.59}
+\contentsline {section}{\numberline {3.5}Probleme}{9}{section.60}
+\contentsline {subsection}{\numberline {3.5.1}Potentielle Probleme im Entwicklungsprozess}{9}{subsection.61}
+\contentsline {subsection}{\numberline {3.5.2}Externe Einfl\"usse im Betrieb}{9}{subsection.62}
+\contentsline {section}{\numberline {3.6}Ablaufplan}{10}{section.63}
+\contentsline {section}{\numberline {3.7}Phasenplan}{11}{section.65}
+\contentsline {chapter}{\numberline {4}Systemarchitektur}{13}{chapter.67}
+\contentsline {section}{\numberline {4.1}funktionale Systemarchitektur}{13}{section.68}
+\contentsline {section}{\numberline {4.2}Ableitung der Hardwareanforderungen}{13}{section.69}
+\contentsline {section}{\numberline {4.3}Ableitung der Softwareanforderungen}{13}{section.70}
+\contentsline {section}{\numberline {4.4}Architektur des Gesamtsystems}{13}{section.71}
+\contentsline {subsection}{\numberline {4.4.1}Technische Systemarchitektur}{13}{subsection.72}
+\contentsline {subsubsection}{\numberline {4.4.1.1}statisch}{13}{subsubsection.73}
+\contentsline {subsubsection}{\numberline {4.4.1.2}dynamisch}{13}{subsubsection.74}
+\contentsline {chapter}{\numberline {5}Softwarearchitektur}{14}{chapter.75}
+\contentsline {section}{\numberline {5.1}Theoretische Grundlagen der verwendeten Algorithmik}{14}{section.76}
+\contentsline {section}{\numberline {5.2}Softwarearchitektur}{14}{section.77}
+\contentsline {chapter}{\numberline {6}Systemtest und Optimierung}{15}{chapter.78}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblicke}{16}{chapter.79}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{17}{chapter*.80}
+\contentsline {chapter}{\numberline {A}Anhang Code}{i}{appendix.81}
+\contentsline {section}{\numberline {A.1}Code 1}{i}{section.82}
+\contentsline {section}{\numberline {A.2}Code 2}{i}{section.83}
+\contentsline {chapter}{\numberline {B}Anhang Bilder}{ii}{appendix.84}
+\contentsline {section}{\numberline {B.1}Bilder}{ii}{section.85}

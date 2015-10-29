@@ -1,0 +1,113 @@
+\chapter{Lastenheft}
+\label{cha:Lastenheft}
+
+% ----------------------------------------------------------------------------------------------------------
+% Section
+% ----------------------------------------------------------------------------------------------------------
+\section{Einführung}
+
+Die nachfolgende Analyse enthält alle an das zu entwickelnde System verbindlich gestellten Anforderungen. Es ist die wichtigste Grundlage für die Anfertigung der Systemspezifikation (Pflichtenheft) und somit essentieller Bestandteil des Projekts. Dies beinhaltet sowohl die funktionalen und nicht-funktionalen Anforderungen, die Zielsetzung, das Verwendungsfeld, als auch weitere Eckdaten für das Projekt.
+
+\section{Zielsetzung}
+
+Ziel des Projekts ist es ein System zu entwickeln, welches in der Lage ist (Vorfahrts-) Schilder im Straßenverkehr selbstständig zu erfassen. Diese Informationen sollen verarbeitet und an den Fahrer ausgegeben werden. Das System wird so ausgelegt, dass es um die Erkennung weiterer Schilder erweitert werden kann. Die Systementwicklung schließt die Bereitstellung einer selbst entworfenen Software auf einer gewählten Hardwareplattform mit ein. Das finale System soll unter realen Bedingungen (im Fahrzeug, wahlweise in einem Modell) verwendet werden können.
+
+\section{Anforderungen}
+
+In diesem Abschnitt werden die gewünschten Funktionalitäten bzw. das Verhalten des Systems erläutert. Es werden Aspekte erläutert, wie Leitung des Systems, Eingaben-Verarbeitung-Ausgaben, sowie die Grenzen des Systems. Ebenso wird auf die Qualität des Systems eingegangen. Die (gewünschte/geforderte) Funktionalität an sich spielt dabei eine ebenso entscheidende Rolle, wie die Bedingungen unter denen die Funktionalität ausgeführt wird.
+
+\subsection{Definition der Schilder}
+
+Das System soll in der Lage sein, alle in der deutschen Straßenverkehrsordnung festgelegten Vorfahrtszeichen korrekt zu erkennen. Die Trefferquote muss bei mindestens 50\% liegen. Zunächst sollen die folgenden fünf Verkehrszeichen erkannt werden:
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=0.1\linewidth]{Bilder/Vorfahrt_gewaehren.png}
+	\captionof{figure}[Vorfahrt gewähren]{Vorfahrt gewähren}
+	\label{fig:Vorfahrt_gewaehren}
+\end{minipage}
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=0.1\linewidth]{Bilder/Stop.png}
+	\captionof{figure}[Halt! Vorfahrt gewähren]{Halt! Vorfahrt gewähren}
+	\label{fig:Stop}
+\end{minipage}
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=0.1\linewidth]{Bilder/Vorfahrt.png}
+	\captionof{figure}[Vorfahrt (nur an der nächsten Kreuzung / Einmündung)]{Vorfahrt (nur an der nächsten Kreuzung / Einmündung)}
+	\label{fig:Vorfahrt}
+\end{minipage}
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=0.1\linewidth]{Bilder/Vorfahrtsstrasse.png}
+	\captionof{figure}[Vorfahrtsstraße]{Vorfahrtsstraße}
+	\label{fig:Vorfahrtsstrasse}
+\end{minipage}
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=0.1\linewidth]{Bilder/Verlauf.png}
+	\captionof{figure}[Verlauf der Vorfahrtsstraße]{Verlauf der Vorfahrtsstraße}
+	\label{fig:Verlauf}
+\end{minipage}
+
+Anschließend ist eine Erweiterung auf Sonderregelungen (Kreisverkehr) sowie weitere Verkehrszeichen (z.B. Geschwindigkeitsbeschränkungen) vorgesehen.
+
+\section{Spezifikation des Systems}
+
+\subsection{Hauptkomponenten}
+
+Das finale System soll aus folgenden Hauptkomponenten bestehen:
+
+\begin{itemize}
+\item hochauflösende (Stereo-)Kamera
+\item Recheneinheit 
+\item Ausgabegerät 
+\end{itemize}
+
+Die Kamera kann frei gewählt werden, muss jedoch mit der verbauten Recheneinheit zusammenarbeiten. Als Recheneinheit wäre ein Einplatinencomputer (Bsp. Rasperry Pi) denkbar.
+Die Ausgabe des erkannten Schildes soll optisch und akustisch erfolgen (Display, HUD, Warnsignal).
+
+\subsection{Systemumgebung}
+
+Das System wird so entwickelt, dass es in einem beliebigen Auto verbaut und genutzt werden kann. Die Kamera wird hinter der Windschutzscheibe mit ?Blick? auf die Straße platziert und muss so angebracht werden, dass die Bilderfassung durch Vibrationen während der Fahrt nicht gestört wird.
+
+Als spätere Erweiterung ist eine Anbindung an die CAN-Kommunikation des Auto-Steuergerätes denkbar (z.B. zur Geschwindigkeitserfassung).
+
+
+\subsection{Systemspezifikationen}
+
+Die Erfassung der Verkehrszeichen soll bis mind. 60 km/h erfolgen. Je nach erfasstem Zeichen muss die Anzeigedauer auf einem Ausgabegerät (z.B. Display) unterschiedlich lang erfolgen. Es muss sichergestellt werden, dass keine anderen von der Kamera erfassten Objekte (z.B. Aufkleber, Werbetafeln) als Verkehrszeichen fehlinterpretiert werden.
+
+\section{Nicht unterstützte Informationssysteme}
+
+Nicht unterstützt werden elektronische Anzeige-Tafeln, sowie Kombischilder. Beides ist jedoch als spätere Erweiterung denkbar.
+
+\section{Grenzen des Systems}
+
+Das finale System muss nur unter idealen Bedingungen einwandfrei funktionieren. Dies schließt den Betrieb am Tag unter idealen Belichtungen ein. Verkehrszeichen dürfen nicht verdreckt, verdreht oder aus anderen Gründen unleserlich sein. Verkehrszeichen dürfen einen Mindestabstand von 20m zueinander besitzen. Fahrzeuggeschwindigkeiten über 60 km/h garantieren keine fehlerfreie Erfassung mehr. 
+
+\section{Gesamtarchitektur}
+
+\subsection{Prinzipieller Ablauf}
+
+Das nachfolgende Diagramm verdeutlicht den Ablauf des geplanten Programms.
+
+\vspace{1em}
+\begin{minipage}{\linewidth}
+	\centering
+	\includegraphics[width=1\linewidth]{Bilder/Ablauf.png}
+	\captionof{figure}[geplanter Ablauf]{geplanter Ablauf}
+	\label{fig:Ablauf}
+\end{minipage}
+
+
