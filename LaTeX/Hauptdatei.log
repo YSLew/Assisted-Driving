@@ -1,62 +1,44 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.1)  5 JUL 2015 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.24)  25 OCT 2015 13:58
 entering extended mode
-**C:/Users/Robert*Ledwig/Dropbox/1.*Ma*Semester/SE-Projekt/Git/LaTeX/Hauptdatei
-.tex
-
-("C:/Users/Robert Ledwig/Dropbox/1. Ma Semester/SE-Projekt/Git/LaTeX/Hauptdatei
-.tex"
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrre
-prt.cls"
-Document Class: scrreprt 2015/02/07 v3.16 KOMA-Script document class (report)
-
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrkb
-ase.sty"
-Package: scrkbase 2015/02/07 v3.16 KOMA-Script package (KOMA-Script-dependent b
-asics and keyval usage)
-
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrba
-se.sty"
-Package: scrbase 2015/02/07 v3.16 KOMA-Script package (KOMA-Script-independent 
+**"C:/Users/Robert Ledwig/Desktop/LaTeX/Hauptdatei.tex"
+("C:/Users/Robert Ledwig/Desktop/LaTeX/Hauptdatei.tex"
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrreprt.cls"
+Document Class: scrreprt 2015/10/03 v3.19a KOMA-Script document class (report)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrkbase.sty"
+Package: scrkbase 2015/10/03 v3.19a KOMA-Script package (KOMA-Script-dependent 
 basics and keyval usage)
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrbase.sty"
+Package: scrbase 2015/10/03 v3.19a KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlf
-ile.sty"
-Package: scrlfile 2015/02/07 v3.16 KOMA-Script package (loading files)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrlfile.sty"
+Package: scrlfile 2015/10/03 v3.19a KOMA-Script package (loading files)
 
-Package scrlfile, 2015/02/07 v3.16 KOMA-Script package (loading files)
+Package scrlfile, 2015/10/03 v3.19a KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-)))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\tocba
-sic.sty"
-Package: tocbasic 2015/02/07 v3.16 KOMA-Script package (handling toc-files)
+))) ("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\tocbasic.sty
+"
+Package: tocbasic 2015/10/03 v3.19a KOMA-Script package (handling toc-files)
 )
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 118.
+(tocbasic)             for `toc' on input line 125.
 Package tocbasic Info: omitting babel extension for `lof'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 119.
+(tocbasic)             for `lof' on input line 126.
 Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 120.
-Package tocbasic Info: defining new hook before heading of `' on input line 118
-0.
+(tocbasic)             for `lot' on input line 127.
+Package tocbasic Info: defining new hook before heading of `' on input line 158
+8.
 Package scrreprt Info: You've used standard option `11pt'.
 (scrreprt)             This is correct!
 (scrreprt)             Internally I'm using `fontsize=11pt'.
@@ -87,18 +69,14 @@ Class scrreprt Info: You've used standard option `final'.
 (scrreprt)           you'd have to use `draft=false' there
 (scrreprt)           instead of `final', too.
 Class scrreprt Info: File `scrsize11pt.clo' used to setup font sizes on input l
-ine 1712.
+ine 2248.
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrsize11pt.clo"
+File: scrsize11pt.clo 2015/10/03 v3.19a KOMA-Script font size class option (11p
+t)
+) ("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\typearea.sty"
+Package: typearea 2015/10/03 v3.19a KOMA-Script package (type area)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrsi
-ze11pt.clo"
-File: scrsize11pt.clo 2015/02/07 v3.16 KOMA-Script font size class option (11pt
-)
-)
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\typea
-rea.sty"
-Package: typearea 2015/02/07 v3.16 KOMA-Script package (type area)
-
-Package typearea, 2015/02/07 v3.16 KOMA-Script package (type area)
+Package typearea, 2015/10/03 v3.19a KOMA-Script package (type area)
                   Copyright (C) Frank Neukam, 1992-1994
                   Copyright (C) Markus Kohm, 1994-
 
@@ -136,7 +114,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 47.6pt
 (typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 1342.
+(typearea)              on input line 1509.
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -145,56 +123,58 @@ Package typearea Info: These are the values describing the layout:
 \c@subsubsection=\count84
 \c@paragraph=\count85
 \c@subparagraph=\count86
+LaTeX Info: Redefining \textsubscript on input line 4652.
 \abovecaptionskip=\skip46
 \belowcaptionskip=\skip47
 \c@pti@nb@sid@b@x=\box26
 \c@figure=\count87
 \c@table=\count88
 \bibindent=\dimen102
-) ("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Meta.tex
-")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Packages.t
-ex"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrpa
-ge2.sty"
-Package: scrpage2 2015/02/07 v3.16 KOMA-Script package (page head and foot)
+) (Meta.tex) (Packages.tex
+("C:\Program Files (x86)\Miktex Portable\tex\latex\koma-script\scrpage2.sty"
+Package: scrpage2 2015/10/03 v3.19a KOMA-Script package (page head and foot)
 LaTeX Info: Redefining \pagemark on input line 174.
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2008/07/08 v3.8m The Babel package
+)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\babel\babel.sty"
+Package: babel 2015/08/03 3.9m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
-Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+("C:\Program Files (x86)\Miktex Portable\tex\latex\babel-german\ngerman.ldf"
+Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2008/07/08 v3.8m Babel common definitions
+("C:\Program Files (x86)\Miktex Portable\tex\latex\babel-german\ngermanb.ldf"
+Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
+
+("C:\Program Files (x86)\Miktex Portable\tex\generic\babel\babel.def"
+File: babel.def 2015/08/03 3.9m Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 )
 \l@naustrian = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 92.
-))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
-Package: inputenc 2008/03/30 v1.1d Input encoding file
+\l@nswissgerman = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 88.
+)))
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latin1.def"
-File: latin1.def 2008/03/30 v1.1d Input encoding file
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\latin1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\textcomp.sty"
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -207,79 +187,80 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             only a restricted character set as indicated.
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
-LaTeX Info: Redefining \oldstylenums on input line 266.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
 
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\eurosym\eurosym.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\eurosym\eurosym.sty"
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box27
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\lmodern.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\lmodern.sty"
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -314,47 +295,47 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\ltxmisc\relsize.sty"
 Package: relsize 2003/07/04 ver 3.1
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 94.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\dvips.def"
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
 \ex@=\dimen106
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen107
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
@@ -395,31 +376,31 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\makeidx.sty"
-Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace
-.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count102
@@ -435,19 +416,15 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen122
 \Gm@dimlist=\toks22
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\acronym\acronym.s
-ty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files (x86)\Miktex Portable\tex\latex\acronym\acronym.sty"
 Package: acronym 2015/03/21 v1.41 Support for acronyms (Tobias Oetiker)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\bigfoot\suffix.st
-y"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\bigfoot\suffix.sty"
 Package: suffix 2006/07/15 1.5a Variant command support
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\xstring\xstring.s
-ty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\xstring\xstring
-.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\xstring\xstring.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\xstring\xstring.tex"
 \@xs@message=\write3
 \integerpart=\count105
 \decimalpart=\count106
@@ -456,8 +433,7 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 \AC@clearlist=\toks23
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\floatflt\floatflt
-.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\floatflt\floatflt.sty"
 Package: floatflt 1997/07/16 v. 1.31
 \c@OptionTest=\count107
 \figbox=\box30
@@ -479,8 +455,7 @@ Package: floatflt 1997/07/16 v. 1.31
 \fltitemwidth=\dimen130
 \outputpretest=\toks24
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings
-.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\listings\listings.sty"
 \lst@mode=\count114
 \lst@gtempboxa=\box33
 \lst@token=\toks25
@@ -494,34 +469,32 @@ Package: floatflt 1997/07/16 v. 1.31
 \lst@lineno=\count119
 \lst@maxwidth=\dimen134
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.
-sty"
-File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count120
 \lst@skipnumbers=\count121
 \lst@framebox=\box34
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings
-.cfg"
-File: listings.cfg 2014/09/06 1.5e listings configuration
+("C:\Program Files (x86)\Miktex Portable\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package: listings 2014/09/06 1.5e (Carsten Heinz)
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
-"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\xcolor\xcolor.sty"
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+
+("C:\Program Files (x86)\Miktex Portable\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count122
@@ -535,12 +508,11 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
-"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
@@ -548,15 +520,17 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count123
 
 Local config file natbib.cfg used
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\natbib.cfg
-")) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+(natbib.cfg))
+("C:\Program Files (x86)\Miktex Portable\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\hobsub-hyperref.s
+ty"
 Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\hobsub-generic.st
+y"
 Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -594,23 +568,22 @@ Package atveryend Info: \enddocument detected (standard20110627).
 Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+) ("C:\Program Files (x86)\Miktex Portable\tex\latex\oberdiek\auxhook.sty"
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen135
 \Hy@linkcounter=\count124
 \Hy@pagecounter=\count125
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count126
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `final' set `true' on input line 4319.
@@ -628,10 +601,10 @@ Package hyperref Info: Backreferencing ON on input line 4461.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\backref.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\hyperref\backref.sty"
 Package: backref 2012/07/25 v1.38 Bibliographical back referencing
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
@@ -658,17 +631,17 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count132
 \c@bookmark@seq@number=\count133
 \Hy@SectionHShift=\skip53
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\chngcntr\chngcntr
-.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\chngcntr\chngcntr.sty"
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\longtable.sty"
-Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\tools\longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
 \LTpre=\skip56
@@ -687,18 +660,18 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 )
 Class scrreprt Info: longtable captions redefined on input line 115.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen140
 \extrarowheight=\dimen141
 \NC@list=\toks27
 \extratabsurround=\skip58
 \backup@length=\skip59
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\ragged2e.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\ms\ragged2e.sty"
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everysel.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\ms\everysel.sty"
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
 \CenteringLeftskip=\skip60
@@ -715,75 +688,72 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 \RaggedLeftParindent=\skip71
 \RaggedRightParindent=\skip72
 \JustifyingParindent=\skip73
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\paralist\paralist
-.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\paralist\paralist.sty"
 Package: paralist 2013/06/09 v2.4 Extended list environments
 \pltopsep=\skip74
 \plpartopsep=\skip75
 \plitemsep=\skip76
 \plparsep=\skip77
 \pl@lab=\toks28
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\todonotes\todonot
-es.sty"
-Package: todonotes 2012/07/25 .dtx Todonotes source and documentation.
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\todonotes\todonotes.sty"
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
 Package: todonotes 2012/07/25
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
-Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files (x86)\Miktex Portable\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\xkeyval\xkvutils.tex"
 \XKV@toks=\toks29
 \XKV@tempa@toks=\toks30
+)
 \XKV@depth=\count139
-File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer
-\tikz.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pg
-f.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgf
-rcs.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfutil-common.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\basiclayer\pgf.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfutil-comm
+on.tex"
 \pgfutil@everybye=\toks31
 \pgfutil@tempdima=\dimen142
 \pgfutil@tempdimb=\dimen143
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfutil-common-lists.tex"))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfutil-latex.def"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfutil-comm
+on-lists.tex"))
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfutil-late
+x.def"
 \pgfutil@abb=\box39
-
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty"
+ ("C:\Program Files (x86)\Miktex Portable\tex\latex\ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfrcs.code.tex"
-Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfrcs.code.
+tex"
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
-Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pg
-fcore.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\p
-gfsys.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgfsys.code.tex"
-Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgfsys.cod
+e.tex"
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfkeys.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfkeys.code
+.tex"
 \pgfkeys@pathtoks=\toks32
 \pgfkeys@temptoks=\toks33
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfkeysfiltered.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfkeysfilte
+red.code.tex"
 \pgfkeys@tmptoks=\toks34
 ))
 \pgf@x=\dimen144
@@ -804,42 +774,41 @@ gfkeysfiltered.code.tex"
 \t@pgf@tokb=\toks36
 \t@pgf@tokc=\toks37
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgf.cfg"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgf.cfg"
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgfsys-pdftex.def"
-File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgfsys-pdf
+tex.def"
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgfsys-common-pdf.def"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgfsys-com
+mon-pdf.def"
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgfsyssoftpath.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgfsyssoft
+path.code.tex"
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
 \pgfsyssoftpath@smallbuffer@items=\count144
 \pgfsyssoftpath@bigbuffer@items=\count145
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer
-\pgfsysprotocol.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\systemlayer\pgfsysprot
+ocol.code.tex"
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcore.code.tex"
-Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcore.cod
+e.tex"
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-h.code.tex"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hcalc.code.tex"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hutil.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hparser.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmath.code.tex"
+
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathcalc.code.
+tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathutil.code.
+tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathparser.cod
+e.tex"
 \pgfmath@dimen=\dimen152
 \pgfmath@count=\count146
 \pgfmath@box=\box40
@@ -847,30 +816,30 @@ hparser.code.tex"
 \pgfmath@stack@operand=\toks39
 \pgfmath@stack@operation=\toks40
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.code.tex"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.basic.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.trigonometric.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.random.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.comparison.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.base.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.round.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.misc.code.tex")
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfunctions.integerarithmetics.code.tex")))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-hfloat.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+basic.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+trigonometric.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+random.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+comparison.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+base.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+round.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+misc.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfunctions.
+integerarithmetics.code.tex")))
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmathfloat.code
+.tex"
 \c@pgfmathroundto@lastzeros=\count147
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorepoints.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorepoin
+ts.code.tex"
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen153
 \pgf@picmaxx=\dimen154
@@ -887,129 +856,125 @@ File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@zx=\dimen165
 \pgf@zy=\dimen166
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorepathconstruct.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorepath
+construct.code.tex"
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 \pgf@path@lastx=\dimen167
 \pgf@path@lasty=\dimen168
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorepathusage.code.tex"
-File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorepath
+usage.code.tex"
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen169
 \pgf@shorten@start@additional=\dimen170
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorescopes.code.tex"
-File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorescop
+es.code.tex"
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box41
 \pgf@hbox=\box42
 \pgf@layerbox@main=\box43
 \pgf@picture@serial@count=\count148
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoregraphicstate.code.tex"
-File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoregrap
+hicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen171
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoretransformations.code.tex"
-File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoretran
+sformations.code.tex"
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 \pgf@pt@x=\dimen172
 \pgf@pt@y=\dimen173
 \pgf@pt@temp=\dimen174
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorequick.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorequic
+k.code.tex"
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoreobjects.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoreobje
+cts.code.tex"
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorepathprocessing.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorepath
+processing.code.tex"
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorearrows.code.tex"
-File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorearro
+ws.code.tex"
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 \pgfarrowsep=\dimen175
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoreshade.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoreshad
+e.code.tex"
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen176
 \pgf@sys@shading@range@num=\count149
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoreimage.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoreimag
+e.code.tex"
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoreexternal.code.tex"
-File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoreexte
+rnal.code.tex"
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box44
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorelayers.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorelaye
+rs.code.tex"
 File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcoretransparency.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcoretran
+sparency.code.tex"
 File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\
-pgfcorepatterns.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\basiclayer\pgfcorepatt
+erns.code.tex"
 File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgf
-moduleshapes.code.tex"
-File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\modules\pgfmoduleshape
+s.code.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
 \pgfnodeparttextbox=\box45
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgf
-moduleplot.code.tex"
-File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\modules\pgfmoduleplot.
+code.tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility
-\pgfcomp-version-0-65.sty"
-Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\compatibility\pgfcomp-ve
+rsion-0-65.sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
 \pgf@nodesepstart=\dimen177
 \pgf@nodesepend=\dimen178
 )
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility
-\pgfcomp-version-1-18.sty"
-Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\compatibility\pgfcomp-ve
+rsion-1-18.sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgf
-for.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgf
-keys.sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gfkeys.code.tex"))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\math\pgfmath.
-sty"
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-h.code.tex"))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\p
-gffor.code.tex"
-Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\utilities\pgfkeys.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgfkeys.code
+.tex")) ("C:\Program Files (x86)\Miktex Portable\tex\latex\pgf\math\pgfmath.sty
+" ("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmath.code.te
+x"))
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\utilities\pgffor.code.
+tex"
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmat
-h.code.tex")
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\math\pgfmath.code.tex"
+)
 \pgffor@iter=\dimen179
 \pgffor@skip=\dimen180
 \pgffor@stack=\toks41
 \pgffor@toks=\toks42
 ))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlay
-er\tikz\tikz.code.tex"
-Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\frontendlayer\tikz\tik
+z.code.tex"
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\p
-gflibraryplothandlers.code.tex"
-File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\libraries\pgflibrarypl
+othandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \pgf@plot@mark@count=\count150
 \pgfplotmarksize=\dimen181
 )
@@ -1028,8 +993,8 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
 \tikznumberofcurrentchild=\count153
 \tikz@fig@count=\count154
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgf
-modulematrix.code.tex"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\modules\pgfmodulematri
+x.code.tex"
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 \pgfmatrixcurrentrow=\count155
 \pgfmatrixcurrentcolumn=\count156
@@ -1037,62 +1002,43 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 )
 \tikz@expandcount=\count158
 
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlay
-er\tikz\libraries\tikzlibrarytopaths.code.tex"
-File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\frontendlayer\tikz\lib
+raries\tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlay
-er\tikz\libraries\tikzlibrarypositioning.code.tex"
-File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+("C:\Program Files (x86)\Miktex Portable\tex\generic\pgf\frontendlayer\tikz\lib
+raries\tikzlibrarypositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count159
 \calc@Bcount=\count160
 \calc@Adimen=\dimen188
 \calc@Bdimen=\dimen189
 \calc@Askip=\skip78
 \calc@Bskip=\skip79
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count161
 \calc@Cskip=\skip80
 )
 \c@@todonotes@numberoftodonotes=\count162
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
-Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+("C:\Program Files (x86)\Miktex Portable\tex\latex\tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Seitenstil
-.tex")
+(Seitenstil.tex)
 \@input{Silbentrennung.aux}
-
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Silbentren
-nung.tex")
+(Silbentrennung.tex)
 \@input{Befehle.aux}
-
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Befehle.te
-x"
+(Befehle.tex
 Package tocbasic Info: setting babel extension for `loe' on input line 45.
-)
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.aux"
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Deckblatt.
-aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Ein
-leitung.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/The
-oretische_Grundlagen.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Las
-tenheft.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Pfl
-ichtenheft.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temdesign.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temtest_und_Optimierung.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Zus
-ammenfassung_und_Ausblicke.aux"))
+) (Hauptdatei.aux (Deckblatt.aux) (Inhalt/Einleitung.aux)
+(Inhalt/Lastenheft.aux) (Inhalt/Pflichtenheft.aux)
+(Inhalt/Systemarchitektur.aux) (Inhalt/Softwarearchitektur.aux)
+(Inhalt/Systemtest_und_Optimierung.aux)
+(Inhalt/Zusammenfassung_und_Ausblicke.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
@@ -1108,15 +1054,15 @@ LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 53.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+("C:\Program Files (x86)\Miktex Portable\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 53.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1154,9 +1100,7 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count163
-
-("C:\Users\Robert Ledwig\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.m
-kii"
+("C:\Program Files (x86)\Miktex Portable\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count164
 \scratchdimen=\dimen190
@@ -1173,10 +1117,11 @@ kii"
 \AtBeginShipoutBox=\box51
 Package backref Info: ** backref set up for natbib ** on input line 53.
 Package hyperref Info: Link coloring ON on input line 53.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+ ("C:\Program Files (x86)\Miktex Portable\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+("C:\Program Files (x86)\Miktex Portable\tex\generic\oberdiek\gettitlestring.st
+y"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count170
@@ -1184,21 +1129,16 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 53.
 LaTeX Info: Redefining \pageref on input line 53.
 LaTeX Info: Redefining \nameref on input line 53.
-
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.out")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.out")
+ (Hauptdatei.out) (Hauptdatei.out)
 \@outlinefile=\write5
- ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 53.
 
-ABD: EveryShipout initializing macros
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 53.
+ ABD: EveryShipout initializing macros
 Package scrbase Info: activating ngerman \equationname on input line 53.
 Package scrbase Info: activating ngerman \listequationname on input line 53.
 
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Deckblatt.
-tex" <Bilder/htw_logo.jpg, id=94, 115.632pt x 67.452pt>
+(Deckblatt.tex <Bilder/htw_logo.jpg, id=226, 115.632pt x 67.452pt>
 File: Bilder/htw_logo.jpg Graphic file (type jpg)
 
 <use Bilder/htw_logo.jpg>
@@ -1206,24 +1146,24 @@ Package pdftex.def Info: Bilder/htw_logo.jpg used on input line 12.
 (pdftex.def)             Requested size: 104.06783pt x 60.70622pt.
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 15.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 15.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 15.
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OMX+lmex on input line 15.
 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1234,14 +1174,19 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 15.
 LaTeX Font Info:    Try loading font information for U+msa on input line 15.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 25.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 25.
+ [1
 
 
 
@@ -1249,44 +1194,65 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{C:/Users/Robert Ledwig/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/
-Users/Robert Ledwig/Dropbox/1. Ma Semester/SE-Projekt/Git/LaTeX/Bilder/htw_logo
-.jpg>])
+
+{C:/Program Files (x86)/Miktex Portable/pdftex/config/pdftex.map} <./Bilder/htw
+_logo.jpg>])
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 71.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
+ ("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.toc")
-\tf@toc=\write6
- <Bilder/HTW_Logo.jpg, id=125, 115.632pt x 67.452pt>
+(Hauptdatei.toc <Bilder/HTW_Logo.jpg, id=263, 115.632pt x 67.452pt>
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
 
 <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 73.
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 30.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 73.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 30.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [1
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 30.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 30.
+ [1
 
 
- <C:/Users/Robert Ledwig/Dropbox/1. Ma Semester/SE-Projekt/Git/LaTeX/Bilder/HTW
-_Logo.jpg>]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.lof")
-\tf@lof=\write7
+ <./Bilder/HTW_Logo.jpg>])
+\tf@toc=\write6
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 73.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 73.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 73.
+ [2]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 73.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 73.
+ (Hauptdatei.lof)
+\tf@lof=\write7
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+
+<use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 74.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [2
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 74.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 74.
+ [3
 
 ]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.lot")
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 74.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 74.
+ (Hauptdatei.lot)
 \tf@lot=\write8
 
 
@@ -1307,43 +1273,18 @@ File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
 <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 76.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [3
-
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.lol")
-\tf@lol=\write9
-File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
- <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 77.
-(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 76.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 76.
  [4
 
 ]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.loe")
-\tf@loe=\write10
-File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
- <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 81.
-(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [5
-
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Abk
-ürzungen.tex")
-File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
- <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 89.
-(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [6
-
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt.tex
-"
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Ein
-leitung.tex"
-Kapitel 1.
+chapter without number
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 76.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 76.
 
 Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              Implementation of \float@addtolist became
@@ -1359,133 +1300,525 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              a package that still implements the
 (scrreprt)              deprecated \float@addtolist interface .
 
+(Hauptdatei.lol)
+\tf@lol=\write9
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 77.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 77.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 77.
+ [5
+
+]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 77.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 77.
+ (Hauptdatei.loe)
+\tf@loe=\write10
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 81.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 81.
+ [6
+
+]
+chapter without number
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 81.
+(Inhalt/Abkürzungen.tex)
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 89.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 89.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 89.
+ [7
+
+] (Inhalt.tex
+(Inhalt/Einleitung.tex
+chapter 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 5.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 5.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 5.
  [1
 
 
 
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/The
-oretische_Grundlagen.tex"
-Kapitel 2.
-set current entry
-set current entry
-set current entry
-Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
-ut line 17.
-set current entry
-)
+] (Inhalt/Lastenheft.tex
+chapter 2.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 11.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 11.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 19.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 19.
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
- <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 6.
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 24.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 24.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 24.
  [2
 
 
 
 ]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Las
-tenheft.tex"
-Kapitel 3.
+<Bilder/Vorfahrt_gewaehren.png, id=351, 90.3375pt x 80.55093pt>
+File: Bilder/Vorfahrt_gewaehren.png Graphic file (type png)
+
+<use Bilder/Vorfahrt_gewaehren.png>
+Package pdftex.def Info: Bilder/Vorfahrt_gewaehren.png used on input line 26.
+(pdftex.def)             Requested size: 39.83629pt x 35.52118pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 24--30
+[]$[]$ 
+ []
+
+<Bilder/Stop.png, id=353, 90.3375pt x 90.3375pt>
+File: Bilder/Stop.png Graphic file (type png)
+ <use Bilder/Stop.png>
+Package pdftex.def Info: Bilder/Stop.png used on input line 34.
+(pdftex.def)             Requested size: 39.83629pt x 39.83682pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 32--38
+[]$[]$ 
+ []
+
+<Bilder/Vorfahrt.png, id=354, 90.3375pt x 80.55093pt>
+File: Bilder/Vorfahrt.png Graphic file (type png)
+
+<use Bilder/Vorfahrt.png>
+Package pdftex.def Info: Bilder/Vorfahrt.png used on input line 42.
+(pdftex.def)             Requested size: 39.83629pt x 35.52118pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 40--46
+[]$[]$ 
+ []
+
+<Bilder/Vorfahrtsstrasse.png, id=355, 90.3375pt x 90.3375pt>
+File: Bilder/Vorfahrtsstrasse.png Graphic file (type png)
+
+<use Bilder/Vorfahrtsstrasse.png>
+Package pdftex.def Info: Bilder/Vorfahrtsstrasse.png used on input line 50.
+(pdftex.def)             Requested size: 39.83629pt x 39.83682pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 48--54
+[]$[]$ 
+ []
+
+<Bilder/Verlauf.png, id=356, 75.28125pt x 75.28125pt>
+File: Bilder/Verlauf.png Graphic file (type png)
+ <use Bilder/Verlauf.png>
+Package pdftex.def Info: Bilder/Verlauf.png used on input line 58.
+(pdftex.def)             Requested size: 39.83629pt x 39.83798pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 56--62
+[]$[]$ 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 65.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 65.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 67.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 67.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 72.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 72.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 72.
+ [3 <./Bilder/Vorfahrt_gewaehren.png> <./Bilder/Stop.png> <./Bilder/Vorfahrt.pn
+g> <./Bilder/Vorfahrtsstrasse.png> <./Bilder/Verlauf.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 80.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 80.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 87.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 87.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 91.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 91.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 95.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 95.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 98.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 98.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 98.
+ [4]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 99.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 99.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 101.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 101.
+
+<Bilder/Ablauf.png, id=370, 722.7pt x 439.6425pt>
+File: Bilder/Ablauf.png Graphic file (type png)
+ <use Bilder/Ablauf.png>
+Package pdftex.def Info: Bilder/Ablauf.png used on input line 108.
+(pdftex.def)             Requested size: 398.3386pt x 242.32066pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 106--112
+[]$[]$ 
+ []
+
 )
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 6.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 6.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 6.
+ [5 <./Bilder/Ablauf.png (PNG copy)>]
+(Inhalt/Pflichtenheft.tex
+chapter 3.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+<Bilder/Einfuehrung_Bild.png, id=376, 301.125pt x 168.63pt>
+File: Bilder/Einfuehrung_Bild.png Graphic file (type png)
+
+<use Bilder/Einfuehrung_Bild.png>
+Package pdftex.def Info: Bilder/Einfuehrung_Bild.png used on input line 14.
+(pdftex.def)             Requested size: 278.83578pt x 156.16298pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 12--18
+[]$[]$ 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 19.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 19.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 21.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 21.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 28.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 28.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 28.
+ [6
+
+
+
+ <./Bilder/Einfuehrung_Bild.png (PNG copy)>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 46.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 53.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 53.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 53.
+ [7]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 58.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 58.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 60.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 60.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 60.
+
+("C:\Program Files (x86)\Miktex Portable\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 62.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 62.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 64.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 64.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 68.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 68.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 68.
+ [8]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 68.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 68.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 72.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 72.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 77.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 77.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 79.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 79.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 83.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 83.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 88.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 88.
+
+<Bilder/Ablaufplan.png, id=421, 597.73312pt x 845.40843pt>
+File: Bilder/Ablaufplan.png Graphic file (type png)
+
+<use Bilder/Ablaufplan.png>
+Package pdftex.def Info: Bilder/Ablaufplan.png used on input line 93.
+(pdftex.def)             Requested size: 398.3386pt x 563.40213pt.
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 91--97
+$[]$ 
+ []
+
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+<use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 99.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 99.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 99.
+ [9]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 99.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 99.
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 117.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 117.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 117.
+ [10 <./Bilder/Ablaufplan.png>])
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 7.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [3
-
-
-
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Pfl
-ichtenheft.tex"
-Kapitel 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+ [11]
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 7.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+ [12]
+(Inhalt/Systemarchitektur.tex
+chapter 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 8.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 8.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 9.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 11.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 11.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 13.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 13.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 16.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 8.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [4
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 8.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 8.
+ [13
 
 
 
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temdesign.tex"
-Kapitel 5.
-File: Bilder/htw_logo.jpg Graphic file (type jpg)
-<use Bilder/htw_logo.jpg>
-Package pdftex.def Info: Bilder/htw_logo.jpg used on input line 13.
-(pdftex.def)             Requested size: 119.50279pt x 69.71304pt.
-
-Overfull \hbox (10.88788pt too wide) in paragraph at lines 11--17
-$[]$ 
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 25.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 25.
-Package acronym Info: Label `acro:ACC' newly defined as it shall be overridden
-although it is yet undefined on input line 25.
-File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
-<use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 30.
-(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [5
-
-
-
-]
-Overfull \hbox (54.34622pt too wide) in paragraph at lines 35--50
- [][] 
- []
-
+] (Inhalt/Softwarearchitektur.tex
+chapter 5.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 6.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 6.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 9.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [6]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temtest_und_Optimierung.tex"
-Kapitel 6.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 9.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 9.
+ [14
+
+
+
+] (Inhalt/Systemtest_und_Optimierung.tex
+chapter 6.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 10.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [7
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 10.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 10.
+ [15
 
 
 
-]
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Zus
-ammenfassung_und_Ausblicke.tex"
-Kapitel 7.
+] (Inhalt/Zusammenfassung_und_Ausblicke.tex
+chapter 7.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 11.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [8
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 11.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 11.
+ [16
 
 
 
-])
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.bbl"
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.brf")
+]) (Hauptdatei.bbl (Hauptdatei.brf)
 \tf@brf=\write11
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 21.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+
+chapter without number
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+
 Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \T1/lmr/m/sc/10.95 Al-tera-Da-tas-heet\T1/lmr/m/n/10.95 :  \T1/lmr/m/it/10.95 C
 y-clo-ne Fa-mi-ly Da-ta Sheet\T1/lmr/m/n/10.95 .  [][]$\T1/lmtt/m/n/10.95 http 
@@ -1520,9 +1853,13 @@ $\T1/lmtt/m/n/10.95 mikrocontroller . net / articles / Ausgangsstufen _ Logik-[
 
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
 <use Bilder/HTW_Logo.jpg>
-Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 82.
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 74.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [9
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 74.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 74.
+ [17
 
 
 ]
@@ -1543,79 +1880,100 @@ File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 106.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [10]
-Anhang A.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+ [18]
+chapter A.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 109.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 109.
+(Anhang_Code.tex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 3.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 3.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 8.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 8.
+)
+File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
+ <use Bilder/HTW_Logo.jpg>
+Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 115.
+(pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 115.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 115.
+ [1
 
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Anhang_Cod
-e.tex"
-Overfull \hbox (12.49568pt too wide) in paragraph at lines 5--6
-[]\T1/lmr/m/n/10.95 HC-SR04-Applikation (Hea-der Fi-le): [][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][]
- []
 
+]
+chapter B.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 115.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 115.
+(Anhang_Bilder.tex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
 )
 File: Bilder/HTW_Logo.jpg Graphic file (type jpg)
  <use Bilder/HTW_Logo.jpg>
 Package pdftex.def Info: Bilder/HTW_Logo.jpg used on input line 127.
 (pdftex.def)             Requested size: 57.81586pt x 33.7259pt.
- [1
-
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 127.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 127.
+ [2
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 127.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 127.
-
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Hauptdatei
-.aux"
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Deckblatt.
-aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Ein
-leitung.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/The
-oretische_Grundlagen.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Las
-tenheft.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Pfl
-ichtenheft.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temdesign.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Sys
-temtest_und_Optimierung.aux")
-("C:\Users\Robert Ledwig\Dropbox\1. Ma Semester\SE-Projekt\Git\LaTeX\Inhalt/Zus
-ammenfassung_und_Ausblicke.aux"))
+ (Hauptdatei.aux
+(Deckblatt.aux) (Inhalt/Einleitung.aux) (Inhalt/Lastenheft.aux)
+(Inhalt/Pflichtenheft.aux) (Inhalt/Systemarchitektur.aux)
+(Inhalt/Softwarearchitektur.aux) (Inhalt/Systemtest_und_Optimierung.aux)
+(Inhalt/Zusammenfassung_und_Ausblicke.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 127.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 127.
 Package rerunfilecheck Info: File `Hauptdatei.out' has not changed.
-(rerunfilecheck)             Checksum: EA9FF5B00B0DFFFC2E3E18438757FBF5;1270.
+(rerunfilecheck)             Checksum: 5F36AE553368FED4DDE5DADAE4EBC16C;3543.
 Package rerunfilecheck Info: File `Hauptdatei.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 127.
  ) 
 Here is how much of TeX's memory you used:
- 23334 strings out of 493921
- 424995 string characters out of 3144853
- 530866 words of memory out of 3000000
- 25993 multiletter control sequences out of 15000+200000
- 94847 words of font info for 69 fonts, out of 3000000 for 9000
- 842 hyphenation exceptions out of 8191
- 76i,17n,66p,726b,1286s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files (x86)/MiKT
-eX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/eurosym/feybr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/lm/lmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/l
-mbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/lm/lmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri
-8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt8.pfb>
-Output written on Hauptdatei.pdf (18 pages, 507530 bytes).
+ 23834 strings out of 493673
+ 426995 string characters out of 3141551
+ 559912 words of memory out of 3000000
+ 26453 multiletter control sequences out of 15000+200000
+ 93553 words of font info for 69 fonts, out of 3000000 for 9000
+ 1026 hyphenation exceptions out of 8191
+ 76i,16n,66p,940b,1286s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/Miktex Portable/fonts/enc/dvips/lm/lm-ec.enc}{C:/Prog
+ram Files (x86)/Miktex Portable/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Program Files
+ (x86)/Miktex Portable/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files (x86)
+/Miktex Portable/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files (x86)/Mikte
+x Portable/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files (x86)/Miktex Por
+table/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/Miktex Portable/f
+onts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/Miktex Portable/fonts/ty
+pe1/public/lm/lmr6.pfb><C:/Program Files (x86)/Miktex Portable/fonts/type1/publ
+ic/lm/lmr8.pfb><C:/Program Files (x86)/Miktex Portable/fonts/type1/public/lm/lm
+r9.pfb><C:/Program Files (x86)/Miktex Portable/fonts/type1/public/lm/lmri10.pfb
+><C:/Program Files (x86)/Miktex Portable/fonts/type1/public/lm/lmssbx10.pfb><C:
+/Program Files (x86)/Miktex Portable/fonts/type1/public/lm/lmtt10.pfb><C:/Progr
+am Files (x86)/Miktex Portable/fonts/type1/public/lm/lmtt8.pfb><C:/Program File
+s (x86)/Miktex Portable/fonts/type1/public/lm/lmtt9.pfb>
+Output written on Hauptdatei.pdf (28 pages, 725116 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 588 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 503 words of extra memory for PDF output out of 10000 (max. 10000000)
 

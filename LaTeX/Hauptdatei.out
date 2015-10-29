@@ -4,19 +4,52 @@
 \BOOKMARK [0][]{chapter*.5}{Formelverzeichnis}{}% 4
 \BOOKMARK [0][]{chapter*.6}{Abk\374rzungsverzeichnis}{}% 5
 \BOOKMARK [0][]{chapter.7}{Einleitung}{}% 6
-\BOOKMARK [1][]{section.8}{Ziele der Arbeit und aktueller Stand}{chapter.7}% 7
-\BOOKMARK [1][]{section.9}{Gliederung der Arbeit}{chapter.7}% 8
-\BOOKMARK [0][]{chapter.10}{Theoretische Grundlagen}{}% 9
-\BOOKMARK [1][]{section.11}{STM32F4 Discovery Evaluation Board}{chapter.10}% 10
-\BOOKMARK [0][]{chapter.13}{Lastenheft}{}% 11
-\BOOKMARK [1][]{section.14}{sgsgsdfgsdfg}{chapter.13}% 12
-\BOOKMARK [0][]{chapter.15}{Pflichtenheft}{}% 13
-\BOOKMARK [1][]{section.16}{sdfsdf}{chapter.15}% 14
-\BOOKMARK [0][]{chapter.17}{Systemdesign}{}% 15
-\BOOKMARK [1][]{section.18}{Umsetzung}{chapter.17}% 16
-\BOOKMARK [0][]{chapter.25}{Systemtest und Optimierung}{}% 17
-\BOOKMARK [0][]{chapter.26}{Zusammenfassung und Ausblicke}{}% 18
-\BOOKMARK [0][]{chapter*.27}{Literaturverzeichnis}{}% 19
-\BOOKMARK [0][]{appendix.28}{Anhang Code}{}% 20
-\BOOKMARK [1][]{section.29}{C-Code}{appendix.28}% 21
-\BOOKMARK [1][]{section.30}{VHDL-Code}{appendix.28}% 22
+\BOOKMARK [1][]{section.8}{Inhalt der Arbeit und Gliederung}{chapter.7}% 7
+\BOOKMARK [0][]{chapter.9}{Lastenheft}{}% 8
+\BOOKMARK [1][]{section.10}{Einf\374hrung}{chapter.9}% 9
+\BOOKMARK [1][]{section.11}{Zielsetzung}{chapter.9}% 10
+\BOOKMARK [1][]{section.12}{Anforderungen}{chapter.9}% 11
+\BOOKMARK [2][]{subsection.13}{Definition der Schilder}{section.12}% 12
+\BOOKMARK [1][]{section.19}{Spezifikation des Systems}{chapter.9}% 13
+\BOOKMARK [2][]{subsection.20}{Hauptkomponenten}{section.19}% 14
+\BOOKMARK [2][]{subsection.21}{Systemumgebung}{section.19}% 15
+\BOOKMARK [2][]{subsection.22}{Systemspezifikationen}{section.19}% 16
+\BOOKMARK [1][]{section.23}{Nicht unterst\374tzte Informationssysteme}{chapter.9}% 17
+\BOOKMARK [1][]{section.24}{Grenzen des Systems}{chapter.9}% 18
+\BOOKMARK [1][]{section.25}{Gesamtarchitektur}{chapter.9}% 19
+\BOOKMARK [2][]{subsection.26}{Prinzipieller Ablauf}{section.25}% 20
+\BOOKMARK [0][]{chapter.28}{Pflichtenheft}{}% 21
+\BOOKMARK [1][]{section.29}{Projektziel/Einf\374hrung}{chapter.28}% 22
+\BOOKMARK [1][]{section.31}{Anforderungsanalyse}{chapter.28}% 23
+\BOOKMARK [2][]{subsection.32}{Muss-Anforderungen}{section.31}% 24
+\BOOKMARK [2][]{subsection.39}{Soll-Anforderungen}{section.31}% 25
+\BOOKMARK [2][]{subsection.45}{Kann-Anforderungen}{section.31}% 26
+\BOOKMARK [1][]{section.51}{Entwicklungstools}{chapter.28}% 27
+\BOOKMARK [1][]{section.56}{Hauptkomponenten}{chapter.28}% 28
+\BOOKMARK [2][]{subsection.57}{Algorithmischer Ansatz}{section.56}% 29
+\BOOKMARK [2][]{subsection.58}{Hardware}{section.56}% 30
+\BOOKMARK [2][]{subsection.59}{Kamera}{section.56}% 31
+\BOOKMARK [1][]{section.60}{Probleme}{chapter.28}% 32
+\BOOKMARK [2][]{subsection.61}{Potentielle Probleme im Entwicklungsprozess}{section.60}% 33
+\BOOKMARK [2][]{subsection.62}{Externe Einfl\374sse im Betrieb}{section.60}% 34
+\BOOKMARK [1][]{section.63}{Ablaufplan}{chapter.28}% 35
+\BOOKMARK [1][]{section.65}{Phasenplan}{chapter.28}% 36
+\BOOKMARK [0][]{chapter.67}{Systemarchitektur}{}% 37
+\BOOKMARK [1][]{section.68}{funktionale Systemarchitektur}{chapter.67}% 38
+\BOOKMARK [1][]{section.69}{Ableitung der Hardwareanforderungen}{chapter.67}% 39
+\BOOKMARK [1][]{section.70}{Ableitung der Softwareanforderungen}{chapter.67}% 40
+\BOOKMARK [1][]{section.71}{Architektur des Gesamtsystems}{chapter.67}% 41
+\BOOKMARK [2][]{subsection.72}{Technische Systemarchitektur}{section.71}% 42
+\BOOKMARK [3][]{subsubsection.73}{statisch}{subsection.72}% 43
+\BOOKMARK [3][]{subsubsection.74}{dynamisch}{subsection.72}% 44
+\BOOKMARK [0][]{chapter.75}{Softwarearchitektur}{}% 45
+\BOOKMARK [1][]{section.76}{Theoretische Grundlagen der verwendeten Algorithmik}{chapter.75}% 46
+\BOOKMARK [1][]{section.77}{Softwarearchitektur}{chapter.75}% 47
+\BOOKMARK [0][]{chapter.78}{Systemtest und Optimierung}{}% 48
+\BOOKMARK [0][]{chapter.79}{Zusammenfassung und Ausblicke}{}% 49
+\BOOKMARK [0][]{chapter*.80}{Literaturverzeichnis}{}% 50
+\BOOKMARK [0][]{appendix.81}{Anhang Code}{}% 51
+\BOOKMARK [1][]{section.82}{Code 1}{appendix.81}% 52
+\BOOKMARK [1][]{section.83}{Code 2}{appendix.81}% 53
+\BOOKMARK [0][]{appendix.84}{Anhang Bilder}{}% 54
+\BOOKMARK [1][]{section.85}{Bilder}{appendix.84}% 55
