@@ -387,7 +387,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				break; //bei einem Dreieck erkannt: abbruch!
+				//break; //bei einem Dreieck erkannt: abbruch!
 			}
 			else
 			{
@@ -395,7 +395,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				break;
+				//break;
 			}
 		}
 		else if (approx.size() >= 4 && approx.size() <= 8)
@@ -445,7 +445,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 					setLabel(dst, "VF_STR", contours[i]);
 					drawContours(dst, contours, i, color);
 					rec = cv::boundingRect(contours[i]);
-					break;
+					//break;
 				}
 			}
 			/*else if (vtc == 5 && mincos >= -0.36 && maxcos <= -0.21) //109° - 105° //0,309 +- 0,03 //changed for practical reasons
@@ -465,7 +465,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 				setLabel(dst, "STOP", contours[i]);
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
-				break;
+				//break;
 			}
 		}
 		else
