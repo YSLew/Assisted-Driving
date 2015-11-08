@@ -29,7 +29,7 @@ using namespace xfeatures2d;
 
 //FLAGS
 
-//#define CAMERA
+#define CAMERA
 //#define DEBUG_OUTPUT
 
 
@@ -336,13 +336,13 @@ Mat check_yellow_range(const Mat& in)
 	cv::Mat hsv_image;
 	cv::Mat out;
 	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
-	cv::inRange(hsv_image, cv::Scalar(14, 60, 40), cv::Scalar(32, 255, 255), out);
+	cv::inRange(hsv_image, cv::Scalar(14, 60, 40), cv::Scalar(32, 255, 255), out); //14,60,40 ... 32, 255, 255
 
 	return out;
 
 }
 
-Mat find_shapes(const Mat& in, const Mat& original, int colour)
+Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_factor)
 {
 	Mat bw = in;
 	Mat input = original;
@@ -363,7 +363,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 		// to the contour perimeter
 		//factor 0,01, original 0,02! //bestimmt Maß der Aproximierung
 		//DIESEN PARAMTER OPTIMIEREN!
-		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*0.020, true); //(0.012 optimal, 0.02 original)
+		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*approx_factor, true); //(0.012 optimal, 0.02 original)
 
 
 		// Skip small or non-convex objects 
@@ -493,16 +493,16 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour)
 int main(int argc, char *argv[])
 {
 	int Wait_Time = 10;
-
+	int num = 0;
 	std::cout << "Hello OpenCV" << std::endl;
 
 	//für Webcam!
 #ifdef CAMERA
 
-	cv::VideoCapture videoCapture(0); //interne Wiedergabe der 1. Quelle (Webcam)!
+	//cv::VideoCapture videoCapture(1); //interne Wiedergabe der 1. Quelle (Webcam)!
 	//cv::VideoCapture videoCapture("http://docs.gstreamer.com/media/sintel_cropped_multilingual.webm");
 	//alternative: festes Video!
-	//cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/VZ_clip1.mp4");
+	cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/SE-Projekt_Videos/Bauernoeppel/VZ_clip1.mp4");
 
 	videoCapture.set(CAP_PROP_FRAME_WIDTH, 1920);
 	videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
@@ -632,8 +632,8 @@ int main(int argc, char *argv[])
 		Mat dst, dst_y;
 		//if (new_obj == true)
 		//{
-		dst = find_shapes(bw_red, input, RED);
-		dst_y = find_shapes(bw_yellow, dst, YELLOW);
+		dst = find_shapes(bw_red, input, RED,0.020); //bei rot ggf schwächer approximieren
+		dst_y = find_shapes(bw_yellow, dst, YELLOW,0.020);
 		if (argc == 1)
 		{
 #ifdef DEBUG_OUTPUT
@@ -644,6 +644,7 @@ int main(int argc, char *argv[])
 			cv::imshow("bw_y", bw_yellow);
 #endif
 			cv::imshow("dst_y", dst_y);
+			cv::imshow("bw_y", bw_yellow);
 		}
 		//}
 
@@ -677,7 +678,10 @@ int main(int argc, char *argv[])
 		case 'e':	Wait_Time = 0; break;
 		case 's':
 		{
-					//cv::imwrite("Testfile.png", input_image);
+					std::string mystring = "Testfile" + num;
+					mystring = mystring + ".png";
+					cv::imwrite(mystring, bw_yellow);
+					num++;
 					new_obj = true;
 					break;
 		}
