@@ -6,43 +6,71 @@
 
 #include <iostream>
 #include <omp.h>
+#include <stdio.h>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-#include <opencv2/videoio.hpp>
+#include <opencv2/core/ocl.hpp>
+//#include <opencv2/videoio.hpp>
 
-#include <opencv2/imgproc/imgproc.hpp>
+
+
+//#include <opencv2/imgproc/imgproc.hpp>
 
 //für Feature-Tracking
-#include <opencv2/features2d.hpp>
-#include <opencv2/xfeatures2d.hpp>
+//#include <opencv2/features2d.hpp>
+//#include <opencv2/xfeatures2d.hpp>
 
-#include <opencv2/calib3d.hpp>
+//#include <opencv2/calib3d.hpp>
 
 using namespace cv;
-using namespace xfeatures2d;
+//using namespace xfeatures2d;
+
 
 //defines
 #define RED 0
 #define YELLOW 1
 
+#define RED_RANGE1 cv::Scalar(0, 80, 60)
+#define RED_RANGE2 cv::Scalar(18, 255, 255)
+#define RED_RANGE3 cv::Scalar(160, 80, 60)
+#define RED_RANGE4 cv::Scalar(179, 255, 255)
+
+#define YELLOW_RANGE1 cv::Scalar(15, 25, 25)
+#define YELLOW_RANGE2 cv::Scalar(32, 250, 255)
+
+/*
+cv::inRange(hsv_image, cv::Scalar(0, 80, 60), cv::Scalar(18, 255, 255), lower_red_hue_range);
+cv::inRange(hsv_image, cv::Scalar(160, 80, 60), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
+cv::inRange(hsv_image, cv::Scalar(15, 25, 25), cv::Scalar(32, 250, 255), out); //14,60,40 ... 32, 255, 255
+*/
+
+
+#define RED_APPROX 0.012
+#define YELLOW_APPROX 0.028
+
+#define MIN_SIZE 1000
+
+
 //FLAGS
 
-#define CAMERA
+//#define CAMERA
 //#define DEBUG_OUTPUT
+#define GPU
 
 
 //gloabals functions
 
 
 //draw a box
-CvRect box = cvRect(50, 50, 100, 100);
-bool drawing_box = false;
+//CvRect box = cvRect(50, 50, 100, 100);
+//bool drawing_box = false;
 
-cv::Mat global_box;
+//cv::Mat global_box;
 
 // Implement mouse callback
+/*
 void my_mouse_callback(int event, int x, int y, int flags, void* param){
 
 	switch (event){
@@ -69,14 +97,14 @@ void my_mouse_callback(int event, int x, int y, int flags, void* param){
 			box.height *= -1;
 		}
 
-		/*std::cout << x << std::endl;
+		std::cout << x << std::endl;
 		std::cout << y << std::endl;
 		std::cout << box.width << std::endl;
-		std::cout << box.height << std::endl;*/
+		std::cout << box.height << std::endl;
 
 	}
 }
-
+*/
 ///////////////
 
 
@@ -165,7 +193,7 @@ int rectangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2, cv::Point pt3)
 	A = array[3];
 	B = array[2];
 	C = array[1];
-	D = array[0];
+	D = array[0]; //biggest
 
 	int AD = abs(A - D);
 	int DC = abs(D - C);
@@ -319,8 +347,8 @@ Mat check_red_range(const Mat& in)
 
 	//original: (0,100,100) bis (10, 255, 255); (160,100,100) bis (179, 255, 255),
 	//testwerte:
-	cv::inRange(hsv_image, cv::Scalar(0, 80, 40), cv::Scalar(18, 255, 255), lower_red_hue_range);
-	cv::inRange(hsv_image, cv::Scalar(160, 80, 40), cv::Scalar(179, 255, 255), upper_red_hue_range); //HUE betweeen 0 and 179
+	cv::inRange(hsv_image, RED_RANGE1, RED_RANGE2, lower_red_hue_range);
+	cv::inRange(hsv_image, RED_RANGE3, RED_RANGE4, upper_red_hue_range); //HUE betweeen 0 and 179
 	cv::Mat red_hue_image;
 	cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, out);
 
@@ -336,7 +364,8 @@ Mat check_yellow_range(const Mat& in)
 	cv::Mat hsv_image;
 	cv::Mat out;
 	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
-	cv::inRange(hsv_image, cv::Scalar(14, 60, 40), cv::Scalar(32, 255, 255), out); //14,60,40 ... 32, 255, 255
+	cv::inRange(hsv_image, YELLOW_RANGE1, YELLOW_RANGE2, out); //14,60,40 ... 32, 255, 255
+	//invertierte Werte für Value ggü Paint! (Value= 255 =>  minimale Helligkeit, Saturation = 255 => max. Sättigung!)
 
 	return out;
 
@@ -367,18 +396,39 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 
 
 		// Skip small or non-convex objects 
-		if (std::fabs(cv::contourArea(contours[i])) < 1000 || !cv::isContourConvex(approx))
+		if ((std::fabs(cv::contourArea(contours[i])) < MIN_SIZE) || (!cv::isContourConvex(approx)))
 			continue;
 
-		
+		// Number of vertices of polygonal curve
+		int vtc = approx.size();
 
-		//draw contours - now only if sign is detected
-		//Scalar color = Scalar(0, 0, 255, 0);
+		//Winkelbetrachtung ggf. überflüssig für gestauchte/gestreckte Schilder? Zeitfrage!
+		// Get the cosines of all corners
+		std::vector<double> cos;
+		for (int j = 2; j < vtc + 1; j++)
+			//TODO: find out, how this can work!
+			//atm this is not logical!
+			cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
+
+		// Sort ascending the cosine values
+		std::sort(cos.begin(), cos.end());
+
+		// Get the lowest and the highest cosine
+		double mincos = cos.front();
+		double maxcos = cos.back();
+
+		// Use the degrees obtained above and the number of vertices
+		// to determine the shape of the contour
+
+		//any form with n corners: sum of corners is (n-2)*180°
+		//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
+		//all rounded! TODO: set better values using Excel
+		printf("\nMax: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
 		
 		//look for signs
 		//if sign is found in correct colour draw the contour and the border and break the loop
 
-		if (approx.size() == 3 && colour == RED)
+		if (approx.size() == 3 && colour == RED && mincos >= 0.17 && maxcos <= 0.766) //30° - 90° (60°)
 		{
 			//check direction here
 			if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
@@ -400,31 +450,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 		}
 		else if (approx.size() >= 4 && approx.size() <= 8)
 		{
-			// Number of vertices of polygonal curve
-			int vtc = approx.size();
-
-			//Winkelbetrachtung ggf. überflüssig für gestauchte/gestreckte Schilder? Zeitfrage!
-			// Get the cosines of all corners
-			std::vector<double> cos;
-			for (int j = 2; j < vtc + 1; j++)
-				//TODO: find out, how this can work!
-				//atm this is not logical!
-				cos.push_back(angle(approx[j%vtc], approx[j - 2], approx[j - 1]));
-
-			// Sort ascending the cosine values
-			std::sort(cos.begin(), cos.end());
-
-			// Get the lowest and the highest cosine
-			double mincos = cos.front();
-			double maxcos = cos.back();
-
-			// Use the degrees obtained above and the number of vertices
-			// to determine the shape of the contour
-
-			//any form with n corners: sum of corners is (n-2)*180°
-			//e.g. pentagram: (5-2)*180=540; one corner: 540/5=108°
-			//all rounded! TODO: set better values using Excel
-			printf("\nMax: %.2f Min: %.2f VTC: %d \n", maxcos, mincos, vtc);
+			
 
 
 			/*Original
@@ -436,15 +462,16 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 			setLabel(dst, "HEXA", contours[i]);
 			*/
 
-			if (vtc == 4 && mincos >= -0.1 && maxcos <= 0.3 && colour == YELLOW) //95°-72°
+			if (vtc == 4 && colour == YELLOW && mincos >= -0.34 && maxcos <= 0.34) //70°-110°
 			{
 
-				if (rectangle_check(approx[0], approx[1], approx[2], approx[3])) setLabel(dst, "RECT", contours[i]);
-				else
+				if (!(rectangle_check(approx[0], approx[1], approx[2], approx[3]))) //setLabel(dst, "RECT", contours[i]);
+				//else
 				{
 					setLabel(dst, "VF_STR", contours[i]);
 					drawContours(dst, contours, i, color);
 					rec = cv::boundingRect(contours[i]);
+					cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
 					//break;
 				}
 			}
@@ -465,10 +492,11 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 				setLabel(dst, "STOP", contours[i]);
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
+				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
 				//break;
 			}
 		}
-		else
+		else if (colour == RED && approx.size() >= 20)
 		{
 			// Detect and label circles //TODO: find a better way!
 			//double area = cv::contourArea(contours[i]);
@@ -481,6 +509,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 			setLabel(dst, "CIR", contours[i]);
 			drawContours(dst, contours, i, color);
 			rec = cv::boundingRect(contours[i]);
+			cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
 		}
 	}
 
@@ -499,10 +528,10 @@ int main(int argc, char *argv[])
 	//für Webcam!
 #ifdef CAMERA
 
-	//cv::VideoCapture videoCapture(1); //interne Wiedergabe der 1. Quelle (Webcam)!
+	cv::VideoCapture videoCapture(1); //interne Wiedergabe der 1. Quelle (Webcam)!
 	//cv::VideoCapture videoCapture("http://docs.gstreamer.com/media/sintel_cropped_multilingual.webm");
 	//alternative: festes Video!
-	cv::VideoCapture videoCapture("C:/Users/Max/OneDrive/HTW/Master/SE Projekt/SE-Projekt_Videos/Bauernoeppel/VZ_clip1.mp4");
+	//cv::VideoCapture videoCapture("Vorfahrt2.mp4");
 
 	videoCapture.set(CAP_PROP_FRAME_WIDTH, 1920);
 	videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
@@ -566,6 +595,7 @@ int main(int argc, char *argv[])
 
 			//input = imread("Testbild_Color.png"); 
 			input = imread("Viereck_7.JPG");
+			//input = imread("Vorfahrtsfehler/Viereck_90.JPG");
 
 			//input = imread("STOP_Scene_e.jpg");
 			//look_for_red(input);
@@ -576,25 +606,9 @@ int main(int argc, char *argv[])
 
 		input_image = input.clone();
 
-		//ROI für Quadrat anlegen
-		region_of_interest2 = box;
-
-		//draw rectangle
 		input_image_clone = input.clone();
-		cv::rectangle(input_image_clone, region_of_interest2, Scalar(0, 0, 255, 0));
-		if (argc == 1)
-		{
-			//imshow("Input", input_image_clone);
-		}
-
-
-		//input_image = input.clone();
 
 		//Farbfilterung
-
-		//Variante A
-		//input_image = look_for_red(input);
-		//input_image = look_for_yellow(input);
 
 		//Variante B
 		input_image_red = check_red_range(input_image);
@@ -607,6 +621,7 @@ int main(int argc, char *argv[])
 			imshow("Nach Rot-Threshold", input_image_red);
 #endif
 		}
+
 
 		//GAUSS-Filter
 
@@ -621,19 +636,30 @@ int main(int argc, char *argv[])
 		//bewtrifft jeodch nur wenige Sonderfälle!
 		//bisher beste Ergebnisse mit weniger strengen Farbfiltern, keinem Gauss-Filter, aber Canny!
 		cv::Mat bw_red;// = input_image;
+
+		//#ifdef GPU
+		//oclMat alpha(imgThresholded);
+		//ocl::oclMat alpha(bw_red); 
+		//ocl::colMat beta;
+		//ocl::Canny(input_image_red, bw_red, 0, 50, 5, true);
+		//bw_red = Mat(beta);
+		//#else
 		cv::Canny(input_image_red, bw_red, 0, 50, 5, true); //true= more accurate filter, 3 better than 5? found here:
 		//http://docs.opencv.org/modules/imgproc/doc/feature_detection.html?highlight=canny#canny
+		//#endif
 
-		cv::Mat bw_yellow;
-		cv::Canny(input_image_yellow, bw_yellow, 0, 50, 5, true);
+
+		cv::Mat bw_yellow; //kantenerkennung bei Gelb eher kontraproduktiv. klug?
+		//cv::Canny(input_image_yellow, bw_yellow, 0, 50, 5, true);
+		bw_yellow = input_image_yellow;
 
 		//find contours
 
 		Mat dst, dst_y;
 		//if (new_obj == true)
 		//{
-		dst = find_shapes(bw_red, input, RED,0.020); //bei rot ggf schwächer approximieren
-		dst_y = find_shapes(bw_yellow, dst, YELLOW,0.020);
+		dst = find_shapes(bw_red, input, RED, RED_APPROX); //bei rot ggf schwächer approximieren
+		dst_y = find_shapes(bw_yellow, dst, YELLOW, YELLOW_APPROX);
 		if (argc == 1)
 		{
 #ifdef DEBUG_OUTPUT
@@ -678,7 +704,7 @@ int main(int argc, char *argv[])
 		case 'e':	Wait_Time = 0; break;
 		case 's':
 		{
-					std::string mystring = "Testfile" + num;
+					std::string mystring = "Testfile_" + num;
 					mystring = mystring + ".png";
 					cv::imwrite(mystring, bw_yellow);
 					num++;
