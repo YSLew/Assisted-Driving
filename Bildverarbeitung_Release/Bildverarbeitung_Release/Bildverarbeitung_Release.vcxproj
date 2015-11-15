@@ -19,7 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Testprojekt_Objekterkennung\Labor3\Stop-Schild_Test_Contours.cpp" />
+    <ClCompile Include="Colours.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
+    <ClCompile Include="Floating_Average.cpp" />
+    <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="Shapes.cpp" />
+    <ClCompile Include="Stop-Schild_Test_Contours.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Colours.h" />
+    <ClInclude Include="Floating_Average.h" />
+    <ClInclude Include="Geometry.h" />
+    <ClInclude Include="Shapes.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6A0135A8-60BE-4D0C-A2CC-160F5FF0E5A0}</ProjectGuid>
