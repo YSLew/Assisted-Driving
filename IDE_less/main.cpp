@@ -12,10 +12,17 @@
 #include <omp.h>
 #include <stdio.h>
 
+#ifdef _WIN64
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-#include <opencv2/core/ocl.hpp>
+//#include <opencv2/core/ocl.hpp>
+#else
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
+#endif
+//#include <opencv2/core/ocl.hpp>
 //#include <opencv2/videoio.hpp>
 
 

@@ -25,7 +25,7 @@
     <ClCompile Include="Floating_Average.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Shapes.cpp" />
-    <ClCompile Include="Stop-Schild_Test_Contours.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Colours.h" />
