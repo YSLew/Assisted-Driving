@@ -3,7 +3,7 @@ CFLAGS=-c -Wall
 LDFLAGS=
 SOURCES=main.cpp Colours.cpp Floating_Average.cpp Geometry.cpp Shapes.cpp
 #HEADER = Colours.h Floating_Average.h Geometry.h Shapes.h
-OPENCV_LIBS = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lrt -lpthread -lm -ldl
+OPENCV_LIBS = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_videoio -lrt -lpthread -lm -ldl
 OPENCV_PATH = -L/home/pi/opencv-3.0.0/build/lib
 
 OBJECTS=$(SOURCES:.cpp=.o)
