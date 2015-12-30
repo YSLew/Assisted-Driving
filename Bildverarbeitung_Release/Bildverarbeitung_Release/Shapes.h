@@ -1,3 +1,14 @@
+﻿/** Header-File for shape detection (.h)
+*
+* Contains functions for shape detection and traffic sign recognition.
+*
+∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////
+//HEADER
+//////////////////////////////////////////////////////////////////////////////////////
+
 #ifdef _WIN64
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
@@ -9,11 +20,18 @@
 #include "Geometry.h"
 #include "Floating_Average.h"
 
+//////////////////////////////////////////////////////////////////////////////////////
+//DEFINES
+//////////////////////////////////////////////////////////////////////////////////////
+
 #define MIN_SIZE 1000
 //defines
 #define RED 0
 #define YELLOW 1
 
+//////////////////////////////////////////////////////////////////////////////////////
+//TYPEDEF
+//////////////////////////////////////////////////////////////////////////////////////
 
 typedef struct
 {
@@ -30,7 +48,15 @@ typedef struct
 	bool b_vf_str;
 } str_found_signs_this_round;
 
+//////////////////////////////////////////////////////////////////////////////////////
+//NAMESPACES
+//////////////////////////////////////////////////////////////////////////////////////
+
 using namespace cv;
+
+//////////////////////////////////////////////////////////////////////////////////////
+//FUNCTIONS
+//////////////////////////////////////////////////////////////////////////////////////
 
 Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_factor, sign_struct * a_sing_struct);
 void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& contour);
@@ -38,9 +64,15 @@ void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& cont
 UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_factor, sign_struct * a_sing_struct);
 void setLabel(cv::UMat& im, const std::string label, std::vector<cv::Point>& contour);
 
-
-
-// Why does a static function has to be declared inline ?
+/** Calculates angle
+*
+* Cosinus angle value will be calculated from given points.
+* This function is static: it has to be declared inline.
+*
+* @param Point  pt1, pt2, pt3 - given Points
+∗ @return double - cosinus angle value
+∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
+*/
 static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 {
 	double dx1 = pt1.x - pt0.x;
