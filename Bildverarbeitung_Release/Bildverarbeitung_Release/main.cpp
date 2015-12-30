@@ -51,7 +51,7 @@ cv::inRange(hsv_image, cv::Scalar(15, 25, 25), cv::Scalar(32, 250, 255), out); /
 
 //FLAGS
 
-//#define CAMERA
+#define CAMERA
 #define OUTPUT
 //#define DEBUG_OUTPUT
 #define GPU
