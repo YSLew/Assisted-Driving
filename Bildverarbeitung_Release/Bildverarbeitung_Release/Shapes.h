@@ -64,6 +64,8 @@ void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& cont
 UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_factor, sign_struct * a_sing_struct);
 void setLabel(cv::UMat& im, const std::string label, std::vector<cv::Point>& contour);
 
+String type2str(int type);
+
 /** Calculates angle
 *
 * Cosinus angle value will be calculated from given points.
@@ -81,3 +83,4 @@ static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 	double dy2 = pt2.y - pt0.y;
 	return (dx1*dx2 + dy1*dy2) / sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
+

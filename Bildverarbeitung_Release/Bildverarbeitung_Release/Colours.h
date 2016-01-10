@@ -50,10 +50,13 @@ using namespace cv;
 //FUNCTIONS
 //////////////////////////////////////////////////////////////////////////////////////
 
-Mat check_red_range(const Mat& in);
-Mat check_yellow_range(const Mat& in);
+void check_red_range(const Mat& in, const Mat& out);
+void check_yellow_range(const Mat& in, const Mat& out);
 
 UMat check_red_range(const UMat& in);
 UMat check_yellow_range(const UMat& in);
+
+//debug
+Mat check_red_range(const Mat& in);
 
 

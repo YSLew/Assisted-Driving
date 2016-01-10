@@ -24,6 +24,24 @@
 ∗ @return manipulated Mat object.
 ∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
 */
+void check_red_range(const Mat& in, const Mat& out)
+{
+	cv::Mat hsv_image;
+	//cv::Mat out;
+	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
+	cv::Mat lower_red_hue_range;
+	cv::Mat upper_red_hue_range;
+
+	// in hsv red is splitted in two areals. This function checks both of them...
+	cv::inRange(hsv_image, RED_RANGE1, RED_RANGE2, lower_red_hue_range);
+	cv::inRange(hsv_image, RED_RANGE3, RED_RANGE4, upper_red_hue_range); 
+
+	//...and merges them.
+	cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, out);
+
+	//return out;
+}
+//only debug
 Mat check_red_range(const Mat& in)
 {
 	cv::Mat hsv_image;
@@ -34,7 +52,7 @@ Mat check_red_range(const Mat& in)
 
 	// in hsv red is splitted in two areals. This function checks both of them...
 	cv::inRange(hsv_image, RED_RANGE1, RED_RANGE2, lower_red_hue_range);
-	cv::inRange(hsv_image, RED_RANGE3, RED_RANGE4, upper_red_hue_range); 
+	cv::inRange(hsv_image, RED_RANGE3, RED_RANGE4, upper_red_hue_range);
 
 	//...and merges them.
 	cv::addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, out);
@@ -77,14 +95,11 @@ UMat check_red_range(const UMat& in)
 ∗ @return manipulated Mat object.
 ∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
 */
-Mat check_yellow_range(const Mat& in)
+void check_yellow_range(const Mat& in, const Mat& out)
 {
 	cv::Mat hsv_image;
-	cv::Mat out;
 	cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
 	cv::inRange(hsv_image, YELLOW_RANGE1, YELLOW_RANGE2, out); 
-
-	return out;
 
 }
 

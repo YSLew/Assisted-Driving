@@ -15,6 +15,38 @@
 //FUNCTIONS
 //////////////////////////////////////////////////////////////////////////////////////
 
+/** type2str
+*
+* Shows type of Mat variable
+*
+* @param type - type of Mat variable (Mat.type())
+∗ @return String - type of Mat as String
+∗ @copied from: http://stackoverflow.com/questions/10167534/how-to-find-
+* out-what-type-of-a-mat-object-is-with-mattype-in-opencv
+*/
+String type2str(int type) {
+	String r;
+
+	uchar depth = type & CV_MAT_DEPTH_MASK;
+	uchar chans = 1 + (type >> CV_CN_SHIFT);
+
+	switch (depth) {
+	case CV_8U:  r = "8U"; break;
+	case CV_8S:  r = "8S"; break;
+	case CV_16U: r = "16U"; break;
+	case CV_16S: r = "16S"; break;
+	case CV_32S: r = "32S"; break;
+	case CV_32F: r = "32F"; break;
+	case CV_64F: r = "64F"; break;
+	default:     r = "User"; break;
+	}
+
+	r += "C";
+	r += (chans + '0');
+
+	return r;
+}
+
 //TODO: integrate both shape funtions in one template!
 //template<typename T_Mat>
 
@@ -36,6 +68,9 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 
 	//used algorithm:
 	//http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html?highlight=findcontours#findcontours
+	String ty = type2str(bw.type());
+	String ty2 = type2str(input.type());
+
 	cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
 
 	std::vector<cv::Point> approx;

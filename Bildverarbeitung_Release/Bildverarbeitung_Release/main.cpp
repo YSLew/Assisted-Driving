@@ -63,7 +63,51 @@ using namespace cv;
 //#define DEBUG_OUTPUT
 
 //use GPU support
-#define GPU
+//#define GPU
+
+//use MULTICORE SUPPORT
+//#define MULTICORE
+
+//atm: no gpu and multicore at the same time
+
+//////////////////////////////////////////////////////////////////////////////////////
+//CLASSES (INLINE)
+//////////////////////////////////////////////////////////////////////////////////////
+
+class Parallel_process : public cv::ParallelLoopBody
+{
+
+private:
+	cv::Mat img;
+	cv::Mat& retVal;
+	void(*func_to_run)(const Mat&, const Mat&);
+	int size;
+	int diff;
+
+public:
+	Parallel_process(cv::Mat inputImage, cv::Mat& outImage, void(*func)(const Mat&, const Mat&),
+		int sizeVal, int diffVal)
+		: img(inputImage), retVal(outImage), func_to_run(func),
+		size(sizeVal), diff(diffVal){}
+
+	virtual void operator()(const cv::Range& range) const
+	{
+		for (int i = range.start; i < range.end; i++)
+		{
+			/* divide image in 'diff' number
+			of parts and process simultaneously */
+
+			cv::Mat in(img, cv::Rect(0, (img.rows / diff)*i,
+				img.cols, img.rows / diff));
+			cv::Mat out(retVal, cv::Rect(0, (retVal.rows / diff)*i,
+				retVal.cols, retVal.rows / diff));
+
+			func_to_run(in, out);
+			//check_red_range(in, out);
+
+		}
+	}
+};
 
 //////////////////////////////////////////////////////////////////////////////////////
 //FUNCTIONS
@@ -154,9 +198,36 @@ int main(int argc, char *argv[])
 
 		input_image = input.clone();
 
+
+		#ifdef MULTICORE
+
+		int thread_count = 8;
+		cv::setNumThreads(thread_count);
+
+		// create 8 threads and use TBB
+
+		void(*cyr)(const Mat&, const Mat&) = check_yellow_range;
+		void(*crr)(const Mat&, const Mat&) = check_red_range;
+
+		cv::Mat out = cv::Mat::zeros(input_image.size(), CV_8UC1);
+		cv::Mat out2 = cv::Mat::zeros(input_image.size(), CV_8UC1);
+
+		cv::parallel_for_(cv::Range(0, thread_count), Parallel_process(input_image, out, crr, 5, thread_count));
+		input_image_red = out;
+
+		cv::parallel_for_(cv::Range(0, thread_count), Parallel_process(input_image, out2, cyr, 5, thread_count));
+		input_image_yellow = out2;
+
+		#else		
+		
+		//fill empty image
+		input_image_red = cv::Mat::zeros(input_image.size(), CV_8UC1);
+		input_image_yellow = cv::Mat::zeros(input_image.size(), CV_8UC1);
+
 		//colour filter
-		input_image_red = check_red_range(input_image);
-		input_image_yellow = check_yellow_range(input_image);
+		check_red_range(input_image, input_image_red);
+		check_yellow_range(input_image, input_image_yellow);
+		#endif
 
 		if (argc == 1)
 		{
@@ -178,6 +249,8 @@ int main(int argc, char *argv[])
 		//Experiments showed: canny works bad for yellow contours. Disabled at the moment.
 		//cv::Canny(input_image_yellow, bw_yellow, 0, 50, 5, true);
 		bw_yellow = input_image_yellow;
+		//only necessary if canny is not used
+		bw_yellow.convertTo(bw_yellow, CV_8UC1);
 
 		//find contours
 		dst = find_shapes(bw_red, input, RED, RED_APPROX, &traffics_signs); 
