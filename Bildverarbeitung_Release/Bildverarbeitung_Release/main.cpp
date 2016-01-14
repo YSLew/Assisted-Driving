@@ -74,6 +74,15 @@ using namespace cv;
 //CLASSES (INLINE)
 //////////////////////////////////////////////////////////////////////////////////////
 
+/** Class for Parallel functions
+*
+* Child of ParallelLoopBody (OpenCV-classe for parallel processes). This structure was found on
+* http://www.jayrambhia.com/blog/opencv-with-tbb/
+*
+* By overloading the ()-operator used by Range() the given function will be performed parallel.
+*
+∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
+*/
 class Parallel_process : public cv::ParallelLoopBody
 {
 
@@ -118,7 +127,7 @@ public:
 * Main routine, start of program. Contains Loop, which will be performed one time per image.
 *
 * @param argc - number of arguments, argv - array of arguments. First argument can be used image.
-*  This image will be used, if it is defined, otherwise, a static image or the camera will be used.
+*  This image will be used, if it is defined, otherwise a static image or the camera will be used.
 ∗ @return Always 0.
 ∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
 */
