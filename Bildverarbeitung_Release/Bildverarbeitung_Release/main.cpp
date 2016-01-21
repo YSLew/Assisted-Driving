@@ -21,6 +21,7 @@
 #include <iostream>
 #include <omp.h>
 #include <stdio.h>
+//#include <wiringPi.h>
 
 // header for used opencv libraries
 #ifdef _WIN64
@@ -57,7 +58,7 @@ using namespace cv;
 #define CAMERA
 
 //show live output images
-#define OUTPUT
+#define OUTPUT_IMG
 
 //show live output debug images
 //#define DEBUG_OUTPUT
@@ -65,8 +66,7 @@ using namespace cv;
 //use GPU support
 //#define GPU
 
-//use MULTICORE SUPPORT
-//#define MULTICORE
+//use MULTICORE SUPPORT/#define MULTICORE
 
 //atm: no gpu and multicore at the same time
 
@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 
 	#ifdef CAMERA
 		//use webcam (first video device in system)
-		cv::VideoCapture videoCapture(0); 
+		cv::VideoCapture videoCapture(1); 
 
 		//alternative: use a static video
 		//cv::VideoCapture videoCapture("Vorfahrt2.mp4");
@@ -229,9 +229,15 @@ int main(int argc, char *argv[])
 
 		#else		
 		
+		#ifdef GPU
+		//fill empty image
+		input_image_red = cv::UMat::zeros(input_image.size(), CV_8UC1);
+		input_image_yellow = cv::UMat::zeros(input_image.size(), CV_8UC1);
+		#else
 		//fill empty image
 		input_image_red = cv::Mat::zeros(input_image.size(), CV_8UC1);
 		input_image_yellow = cv::Mat::zeros(input_image.size(), CV_8UC1);
+		#endif
 
 		//colour filter
 		check_red_range(input_image, input_image_red);
@@ -275,7 +281,7 @@ int main(int argc, char *argv[])
 				cv::imshow("bw_y", bw_yellow);
 		#endif
 
-		#ifdef OUTPUT
+		#ifdef OUTPUT_IMG
 				cv::imshow("dst_y", dst_y);
 				cv::imshow("bw_y", bw_yellow);
 		#endif
@@ -317,6 +323,20 @@ int main(int argc, char *argv[])
 
 		printf("\rTime per Frame: %0.3f STOP: %d VF_GW: %d VF_STR: %d", t,
 			CheckAVG(&(&traffics_signs)->stop), CheckAVG(&(&traffics_signs)->vf_gw), CheckAVG(&(&traffics_signs)->vf_str));
+		
+		//init
+		/*
+		pinMode(8, OUTPUT);
+		pinMode(9, OUTPUT);
+		pinMode(10, OUTPUT);
+		
+		if(wiringPiSetup()!= -1)
+		{
+			digitalWrite(8, CheckAVG(&(&traffics_signs)->stop));
+			digitalWrite(8, CheckAVG(&(&traffics_signs)->vf_gw));
+			digitalWrite(8, CheckAVG(&(&traffics_signs)->vf_str));
+		}*/
+		
 	}
 
 	return 0;

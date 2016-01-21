@@ -53,6 +53,9 @@ using namespace cv;
 void check_red_range(const Mat& in, const Mat& out);
 void check_yellow_range(const Mat& in, const Mat& out);
 
+void check_red_range(const UMat& in, const UMat& out);
+void check_yellow_range(const UMat& in, const UMat& out);
+
 UMat check_red_range(const UMat& in);
 UMat check_yellow_range(const UMat& in);
 

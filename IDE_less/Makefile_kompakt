@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -Wall
-LDFLAGS=
+LDFLAGS=-lwiringPi
 SOURCES=main.cpp Colours.cpp Floating_Average.cpp Geometry.cpp Shapes.cpp
 #HEADER = Colours.h Floating_Average.h Geometry.h Shapes.h
 OPENCV_LIBS = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_videoio -lrt -lpthread -lm -ldl

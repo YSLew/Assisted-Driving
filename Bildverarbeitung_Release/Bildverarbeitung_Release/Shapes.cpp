@@ -166,8 +166,12 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 		}
 	}
 
+	if (colour == RED)
+	{
 		AddToFloatAvg(&(a_sing_struct->vf_gw), (&actual_round)->b_vf_gw);
 		AddToFloatAvg(&(a_sing_struct->stop), (&actual_round)->bstop);
+	}
+	else
 		AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round)->b_vf_str);
 	
 	return dst;
@@ -290,7 +294,7 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 	}
 	else
 	AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round)->b_vf_str);
-	//GetValue(&(a_sing_struct->vf_str));
+
 
 	return dst;
 
