@@ -24,21 +24,23 @@
 ∗ @copied from: http://stackoverflow.com/questions/10167534/how-to-find-
 * out-what-type-of-a-mat-object-is-with-mattype-in-opencv
 */
-String type2str(int type) {
+String type2str(int type) 
+{
 	String r;
 
 	uchar depth = type & CV_MAT_DEPTH_MASK;
 	uchar chans = 1 + (type >> CV_CN_SHIFT);
 
-	switch (depth) {
-	case CV_8U:  r = "8U"; break;
-	case CV_8S:  r = "8S"; break;
-	case CV_16U: r = "16U"; break;
-	case CV_16S: r = "16S"; break;
-	case CV_32S: r = "32S"; break;
-	case CV_32F: r = "32F"; break;
-	case CV_64F: r = "64F"; break;
-	default:     r = "User"; break;
+	switch (depth) 
+	{
+		case CV_8U:  r = "8U"; break;
+		case CV_8S:  r = "8S"; break;
+		case CV_16U: r = "16U"; break;
+		case CV_16S: r = "16S"; break;
+		case CV_32S: r = "32S"; break;
+		case CV_32F: r = "32F"; break;
+		case CV_64F: r = "64F"; break;
+		default:     r = "User"; break;
 	}
 
 	r += "C";
@@ -54,8 +56,11 @@ String type2str(int type) {
 *
 * Finds shapes in image. Approximates shapes. Searchs for traffic signs.
 *
-* @param Point  in - input Matrix, original - original input matrix, colour - colour of shapes to search for, 
-*  approx_factor - approximation strenght, a_sign_struct - struct for detection results
+* @param Point  in - input Matrix
+* @param original - original input matrix
+* @param colour - colour of shapes to search for 
+* @param approx_factor - approximation strenght
+* @param a_sign_struct - struct for detection results
 ∗ @return Mat - output image with integrated found signs
 ∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
 */
@@ -68,8 +73,9 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 
 	//used algorithm:
 	//http://docs.opencv.org/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html?highlight=findcontours#findcontours
-	String ty = type2str(bw.type());
-	String ty2 = type2str(input.type());
+	//use this functions to detect Mat types
+	//String ty = type2str(bw.type());
+	//String ty2 = type2str(input.type());
 
 	cv::findContours(bw.clone(), contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
 
@@ -78,20 +84,23 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 	Scalar color = Scalar(0, 0, 255, 0);
 	cv::Rect rec;
 
-	str_found_signs_this_round actual_round = { false, false, false };
+	str_found_signs_this_round actual_round = 
+	{
+		false, false, false 
+	};
 
 	for (int i = 0; i < contours.size(); i++)
 	{
 		// Approximate contour with accuracy proportional
 		// to the contour perimeter
-		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*approx_factor, true); //(0.012 optimal, 0.02 original)
+		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true) * approx_factor, true); //(0.012 optimal, 0.02 original)
 
 		// Skip small or non-convex objects 
 		if ((std::fabs(cv::contourArea(contours[i])) < MIN_SIZE) || (!cv::isContourConvex(approx)))
 			continue;
 
 		// Number of vertices of polygonal curve
-		int vtc = approx.size();
+		size_t vtc = approx.size();
 
 		// Get the cosines of all corners
 		std::vector<double> cos;
@@ -109,7 +118,8 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 		// to determine the shape of the contour
 		//if sign is found in correct colour draw the contour and the border and break the loop
 
-		if (approx.size() == 3 && colour == RED && mincos >= 0.17 && maxcos <= 0.766) //30° - 90° (60°)
+		if (approx.size() == 3 && colour == RED && mincos >= 0.17 && maxcos <= 0.766) 
+		//30° - 90° (60°)
 		{
 			//check direction here
 			if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
@@ -118,7 +128,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				(&actual_round)->b_vf_gw = true;
+				(&actual_round) -> b_vf_gw = true;
 				//break;			
 			}
 			else
@@ -142,7 +152,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 					drawContours(dst, contours, i, color);
 					rec = cv::boundingRect(contours[i]);
 					cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-					(&actual_round)->b_vf_str = true;
+					(&actual_round) -> b_vf_str = true;
 				}
 			}
 
@@ -153,7 +163,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				(&actual_round)->bstop = true;
+				(&actual_round) -> bstop = true;
 				//break;
 			}
 		}
@@ -168,11 +178,11 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 
 	if (colour == RED)
 	{
-		AddToFloatAvg(&(a_sing_struct->vf_gw), (&actual_round)->b_vf_gw);
-		AddToFloatAvg(&(a_sing_struct->stop), (&actual_round)->bstop);
+		AddToFloatAvg(&(a_sing_struct->vf_gw), (&actual_round) -> b_vf_gw);
+		AddToFloatAvg(&(a_sing_struct->stop), (&actual_round) -> bstop);
 	}
 	else
-		AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round)->b_vf_str);
+		AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round) -> b_vf_str);
 	
 	return dst;
 
@@ -181,7 +191,7 @@ Mat find_shapes(const Mat& in, const Mat& original, int colour, float approx_fac
 /** Find Shapes (UMat)
 *
 * Finds shapes in image. Approximates shapes. Searchs for traffic signs.
-* This function uses the GPU.
+* This function uses the GPU. Function "rectangle" can't be used here.
 *
 * @param Point  in - input Matrix, original - original input matrix, colour - colour of shapes to search for,
 *  approx_factor - approximation strenght, a_sign_struct - struct for detection results
@@ -200,18 +210,21 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 	Scalar color = Scalar(0, 0, 255, 0);
 	cv::Rect rec;
 
-	str_found_signs_this_round actual_round = { false, false, false };
+	str_found_signs_this_round actual_round = 
+	{ 
+		false, false, false
+	};
 
 	for (int i = 0; i < contours.size(); i++)
 	{
-		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*approx_factor, true); //(0.012 optimal, 0.02 original)
+		cv::approxPolyDP(cv::Mat(contours[i]), approx, cv::arcLength(cv::Mat(contours[i]), true)*approx_factor, true); 
 
 		// Skip small or non-convex objects 
 		if ((std::fabs(cv::contourArea(contours[i])) < MIN_SIZE) || (!cv::isContourConvex(approx)))
 			continue;
 
 		// Number of vertices of polygonal curve
-		int vtc = approx.size();
+		size_t vtc = approx.size();
 
 		// Get the cosines of all corners
 		std::vector<double> cos;
@@ -228,7 +241,8 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 		//look for signs
 		//if sign is found in correct colour draw the contour and the border and break the loop
 
-		if (approx.size() == 3 && colour == RED && mincos >= 0.17 && maxcos <= 0.766) //30° - 90° (60°)
+		if (approx.size() == 3 && colour == RED && mincos >= 0.17 && maxcos <= 0.766) 
+			//30° - 90° (60°)
 		{
 			//check direction here
 			if ((triangle_check(approx[0], approx[1], approx[2])) == 0)
@@ -237,7 +251,7 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				//cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				(&actual_round)->b_vf_gw = true;
+				(&actual_round) -> b_vf_gw = true;
 				//break;
 			}
 			else
@@ -262,19 +276,20 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 					setLabel(dst, "VF_STR", contours[i]);
 					drawContours(dst, contours, i, color);
 					rec = cv::boundingRect(contours[i]);
-					(&actual_round)->b_vf_str = true;
+					(&actual_round) -> b_vf_str = true;
 					//cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
 					//break;
 				}
 			}
 
-			else if (vtc == 8 && colour == RED)// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
+			else if (vtc == 8 && colour == RED)
+			// && mincos >= -0.75 && maxcos <= -0.68)// 135° +-2,5° //-0,71 +- 0,03
 			{
 				setLabel(dst, "STOP", contours[i]);
 				drawContours(dst, contours, i, color);
 				rec = cv::boundingRect(contours[i]);
 				//cv::rectangle(dst, rec, Scalar(0, 0, 255, 0));
-				(&actual_round)->bstop = true;
+				(&actual_round) -> bstop = true;
 				//break;
 			}
 		}
@@ -289,12 +304,11 @@ UMat find_shapes(const UMat& in, const UMat& original, int colour, float approx_
 
 	if (colour == RED)
 	{
-	AddToFloatAvg(&(a_sing_struct->vf_gw), (&actual_round)->b_vf_gw);
-	AddToFloatAvg(&(a_sing_struct->stop), (&actual_round)->bstop);
+		AddToFloatAvg(&(a_sing_struct->vf_gw), (&actual_round)->b_vf_gw);
+		AddToFloatAvg(&(a_sing_struct->stop), (&actual_round)->bstop);
 	}
 	else
-	AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round)->b_vf_str);
-
+		AddToFloatAvg(&(a_sing_struct->vf_str), (&actual_round)->b_vf_str);
 
 	return dst;
 

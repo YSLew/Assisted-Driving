@@ -19,7 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="E:\IDE Less form PI\Colours.cpp" />
+    <ClCompile Include="E:\IDE Less form PI\Floating_Average.cpp" />
+    <ClCompile Include="E:\IDE Less form PI\Geometry.cpp" />
+    <ClCompile Include="E:\IDE Less form PI\main.cpp" />
+    <ClCompile Include="E:\IDE Less form PI\Shapes.cpp" />
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\IDE Less form PI\Colours.h" />
+    <ClInclude Include="E:\IDE Less form PI\Floating_Average.h" />
+    <ClInclude Include="E:\IDE Less form PI\Geometry.h" />
+    <ClInclude Include="E:\IDE Less form PI\Shapes.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6A0135A8-60BE-4D0C-A2CC-160F5FF0E5A0}</ProjectGuid>

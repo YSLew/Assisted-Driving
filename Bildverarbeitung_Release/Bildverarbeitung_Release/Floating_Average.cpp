@@ -29,12 +29,12 @@ void AddToFloatAvg(tFloatAvgFilter * io_pFloatAvgFilter,
 	bool i_NewValue)
 {
 	// Write new value
-	io_pFloatAvgFilter->Data[io_pFloatAvgFilter->IndexNextValue] =
+	io_pFloatAvgFilter -> Data[io_pFloatAvgFilter -> IndexNextValue] =
 		i_NewValue;
 	// next value will be written to position behind the new value
-	io_pFloatAvgFilter->IndexNextValue++;
+	io_pFloatAvgFilter -> IndexNextValue++;
 	//if end of buffer is reached, start from beginning
-	io_pFloatAvgFilter->IndexNextValue %= SIZE_OF_AVG;
+	io_pFloatAvgFilter -> IndexNextValue %= SIZE_OF_AVG;
 }
 
 /** Inits AVG buffer
@@ -49,10 +49,10 @@ void InitFloatAvg(tFloatAvgFilter * io_pFloatAvgFilter,
 	//fill buffer
 	for (char i = 0; i < SIZE_OF_AVG; ++i)
 	{
-		io_pFloatAvgFilter->Data[i] = i_DefaultValue;
+		io_pFloatAvgFilter -> Data[i] = i_DefaultValue;
 	}
 	// next value will be written to start of buffer.
-	io_pFloatAvgFilter->IndexNextValue = 0;
+	io_pFloatAvgFilter -> IndexNextValue = 0;
 }
 
 /** Checks AVG buffer
@@ -69,7 +69,7 @@ bool CheckAVG(tFloatAvgFilter * io_pFloatAvgFilter)
 	double o_Result = true;
 	for (int i = 0; i < SIZE_OF_AVG; ++i)
 	{
-		if ((io_pFloatAvgFilter->Data[i]) == true)
+		if ((io_pFloatAvgFilter -> Data[i]) == true)
 			trues++;
 	}
 	if (trues >= (SIZE_OF_AVG * MIN_FOR_DETECT))
@@ -87,6 +87,6 @@ void GetValue(tFloatAvgFilter * io_pFloatAvgFilter)
 {
 	for (int i = 0; i < SIZE_OF_AVG; ++i)
 	{
-		printf("%d", io_pFloatAvgFilter->Data[i]);
+		printf("%d", io_pFloatAvgFilter -> Data[i]);
 	}
 }

@@ -1,7 +1,0 @@
-Aktuelle Erkenntnisse:
-
--Canny muss sein, am besten aktuell: Kernel= 5, sauberer Aalgorithmus (true)
--FindContours mit CV_RETR_LIST, erlaubt auch innenliegende Formen zu sehen, teilweise nötig. Dann aber nach einem erkannten Dreieck abbrechen!
--bisherige Farb-Optima: 
-		cv::inRange(hsv_image, cv::Scalar(0, 40, 40), cv::Scalar(15, 255, 255), lower_red_hue_range);
-		cv::inRange(hsv_image, cv::Scalar(160, 40, 40), cv::Scalar(179, 255, 255), upper_red_hue_range); 

@@ -21,7 +21,7 @@
 #include <iostream>
 #include <omp.h>
 #include <stdio.h>
-
+//#include <wiringPi.h>
 
 // header for used opencv libraries
 #ifdef _WIN64
@@ -34,7 +34,6 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <wiringPi.h>
 #endif
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -67,8 +66,7 @@ using namespace cv;
 //use GPU support
 //#define GPU
 
-//use MULTICORE SUPPORT
-//#define MULTICORE
+//use MULTICORE SUPPORT/#define MULTICORE
 
 //atm: no gpu and multicore at the same time
 
@@ -85,7 +83,7 @@ using namespace cv;
 *
 ∗ @author Max Wahl, Oleg Tydynyan, Robert Ledwig
 */
-class CParallel_process : public cv::ParallelLoopBody
+class Parallel_process : public cv::ParallelLoopBody
 {
 
 private:
@@ -96,11 +94,10 @@ private:
 	int diff;
 
 public:
-	CParallel_process(cv::Mat inputImage, cv::Mat& outImage, void(*func)(const Mat&, const Mat&),
-	int sizeVal, int diffVal) : img(inputImage), retVal(outImage), func_to_run(func),
-	size(sizeVal), diff(diffVal)
-	{
-	}
+	Parallel_process(cv::Mat inputImage, cv::Mat& outImage, void(*func)(const Mat&, const Mat&),
+		int sizeVal, int diffVal)
+		: img(inputImage), retVal(outImage), func_to_run(func),
+		size(sizeVal), diff(diffVal){}
 
 	virtual void operator()(const cv::Range& range) const
 	{
@@ -143,14 +140,14 @@ int main(int argc, char *argv[])
 
 	#ifdef CAMERA
 		//use webcam (first video device in system)
-		cv::VideoCapture videoCapture(0); 
+		cv::VideoCapture videoCapture(1); 
 
 		//alternative: use a static video
 		//cv::VideoCapture videoCapture("Vorfahrt2.mp4");
 
 		//set size of read images
-		videoCapture.set(cv::CAP_PROP_FRAME_WIDTH, 1024);
-		videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 768);
+		videoCapture.set(CAP_PROP_FRAME_WIDTH, 1920);
+		videoCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
 	#endif;
 
 	cv::Mat input_Mat;
@@ -164,7 +161,7 @@ int main(int argc, char *argv[])
 
 		cv::Mat bw_red;
 		cv::Mat bw_yellow;
-		cv::Mat dst, dst_y;
+		Mat dst, dst_y;
 
 		cv::Mat hsv_image;
 	#else
@@ -188,10 +185,7 @@ int main(int argc, char *argv[])
 	InitFloatAvg(&vf_gw_avg, false);
 	InitFloatAvg(&vf_str_avg, false);
 
-	sign_struct traffics_signs = 
-	{ 
-		stop_avg, vf_gw_avg, vf_str_avg 
-	};
+	sign_struct traffics_signs = { stop_avg, vf_gw_avg, vf_str_avg };
 
 	while (1)
 	{
@@ -227,10 +221,10 @@ int main(int argc, char *argv[])
 		cv::Mat out = cv::Mat::zeros(input_image.size(), CV_8UC1);
 		cv::Mat out2 = cv::Mat::zeros(input_image.size(), CV_8UC1);
 
-		cv::parallel_for_(cv::Range(0, thread_count), CParallel_process(input_image, out, crr, 5, thread_count));
+		cv::parallel_for_(cv::Range(0, thread_count), Parallel_process(input_image, out, crr, 5, thread_count));
 		input_image_red = out;
 
-		cv::parallel_for_(cv::Range(0, thread_count), CParallel_process(input_image, out2, cyr, 5, thread_count));
+		cv::parallel_for_(cv::Range(0, thread_count), Parallel_process(input_image, out2, cyr, 5, thread_count));
 		input_image_yellow = out2;
 
 		#else		
@@ -328,12 +322,10 @@ int main(int argc, char *argv[])
 		t = ((double)getTickCount() - t) / getTickFrequency();
 
 		printf("\rTime per Frame: %0.3f STOP: %d VF_GW: %d VF_STR: %d", t,
-			CheckAVG(&(&traffics_signs) -> stop), CheckAVG(&(&traffics_signs) -> vf_gw), CheckAVG(&(&traffics_signs) -> vf_str));
+			CheckAVG(&(&traffics_signs)->stop), CheckAVG(&(&traffics_signs)->vf_gw), CheckAVG(&(&traffics_signs)->vf_str));
 		
 		//init
-		
-		#ifndef _WIN64
-
+		/*
 		pinMode(8, OUTPUT);
 		pinMode(9, OUTPUT);
 		pinMode(10, OUTPUT);
@@ -343,8 +335,7 @@ int main(int argc, char *argv[])
 			digitalWrite(8, CheckAVG(&(&traffics_signs)->stop));
 			digitalWrite(8, CheckAVG(&(&traffics_signs)->vf_gw));
 			digitalWrite(8, CheckAVG(&(&traffics_signs)->vf_str));
-		}
-		#endif
+		}*/
 		
 	}
 

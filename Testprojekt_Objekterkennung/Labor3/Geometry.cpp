@@ -36,9 +36,9 @@ int triangle_check(cv::Point pt0, cv::Point pt1, cv::Point pt2)
 	array[1] = pt1.y;
 	array[2] = pt2.y;
 
-	for (i = 0; i < 3; i++)
+	for (i = 0; i<3; i++)
 	{
-		if (array[i] < min)
+		if (array[i]<min)
 		{
 			min = array[i];
 		}

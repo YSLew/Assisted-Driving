@@ -18,5 +18,34 @@
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="E:\IDE Less form PI\Colours.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\IDE Less form PI\Floating_Average.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\IDE Less form PI\Geometry.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\IDE Less form PI\main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\IDE Less form PI\Shapes.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\IDE Less form PI\Colours.h">
+      <Filter>Quelldateien</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\IDE Less form PI\Floating_Average.h">
+      <Filter>Quelldateien</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\IDE Less form PI\Geometry.h">
+      <Filter>Quelldateien</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\IDE Less form PI\Shapes.h">
+      <Filter>Quelldateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
